@@ -1,7 +1,9 @@
+package com.kodilla;
+
 public class DebugExample {
     public static void main(String[] args) {
-        int firstNumber = 11;
-        int secondNumber = 22;
+        int firstNumber = 22;
+        int secondNumber = 11;
 
         System.out.println(firstNumber);
         System.out.println(secondNumber);
