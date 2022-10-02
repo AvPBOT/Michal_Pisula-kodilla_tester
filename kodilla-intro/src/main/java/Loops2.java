@@ -1,6 +1,4 @@
-package com.kodilla;
-
-public class Loop2 {
+public class Loops2 {
     public static void main(String[] args) {
         int[] numbers = new int[]{96, 70, 87, 34, 91};
         System.out.println("Tablica składa się z następujących elementów: ");

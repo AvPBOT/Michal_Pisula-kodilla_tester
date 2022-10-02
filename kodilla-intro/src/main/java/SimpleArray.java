@@ -1,5 +1,3 @@
-package com.kodilla;
-
 public class SimpleArray {
     public static void main(String[] args) {
         String[] names = new String[5]; // https://skalkuluj.pl/generator-imion
@@ -13,6 +11,7 @@ public class SimpleArray {
         System.out.println(name);
 
         int numberOfElements = names.length;
+        System.out.println();
         System.out.println("Moja tablica zawiera " + numberOfElements + " elementów");
     }
 }

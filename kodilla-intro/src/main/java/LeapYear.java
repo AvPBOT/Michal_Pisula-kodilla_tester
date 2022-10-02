@@ -1,5 +1,3 @@
-package com.kodilla;
-
 import java.util.Scanner;
 public class LeapYear {
     public static void main(String[] args) {
@@ -16,9 +14,10 @@ public class LeapYear {
          */
 
         czyPrzestepny = rok % 4 == 0 && rok % 100 != 0 ? true : false;
-            System.out.println("Czy jest przestępny? " + czyPrzestepny);
+        System.out.println("Czy jest przestępny? " + czyPrzestepny);
     }
     public static int getInt() {
+
         return new Scanner(System.in).nextInt();
     }
 }
