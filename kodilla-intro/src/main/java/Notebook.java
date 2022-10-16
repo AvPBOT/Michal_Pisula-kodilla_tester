@@ -30,7 +30,7 @@ public class Notebook {
     }
 
     public void checkYearPrice() {
-        if ((this.price < 600) && (this.year < 2018)) {
+        if ((this.price <= 600) && (this.year < 2018)) {
             System.out.println("It's a lost artifact of the ancient world.");
         } else if ((this.price > 600 && this.price <= 1000) && (this.year >= 2018)) {
             System.out.println("It's a sensible choice.");
