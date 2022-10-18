@@ -1,29 +1,29 @@
 import java.util.Scanner;
 public class Colors {
     public static String getFirstLetter() {
-        String name = null;
+        String nameColor = null;
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Enter the first letter of the color name: ");
             String firstLetter = scanner.nextLine().trim();
             switch (firstLetter) {
                 case "r":
-                    name = ("The color is: red!");
-                    System.out.println(name);
+                    nameColor = ("The color is: red!");
+                    System.out.println(nameColor);
                     break;
                 case "g":
-                    name = ("The color is: green!");
-                    System.out.println(name);
+                    nameColor = ("The color is: green!");
+                    System.out.println(nameColor);
                     break;
                 case "b":
-                    name = ("The color is: blue!");
-                    System.out.println(name);
+                    nameColor = ("The color is: blue!");
+                    System.out.println(nameColor);
                     break;
                 default:
                     System.out.println("I have no idea!");
                     break;
             }
-            return name;
+            return nameColor;
         }
     }
 
