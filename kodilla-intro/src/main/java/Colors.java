@@ -8,15 +8,15 @@ public class Colors {
             String firstLetter = scanner.nextLine().trim();
             switch (firstLetter) {
                 case "r":
-                    nameColor = ("The color is: red!");
+                    nameColor = ("The full name of the color is: red!");
                     System.out.println(nameColor);
                     break;
                 case "g":
-                    nameColor = ("The color is: green!");
+                    nameColor = ("The full name of the color is: green!");
                     System.out.println(nameColor);
                     break;
                 case "b":
-                    nameColor = ("The color is: blue!");
+                    nameColor = ("The full name of the color is: blue!");
                     System.out.println(nameColor);
                     break;
                 default:
