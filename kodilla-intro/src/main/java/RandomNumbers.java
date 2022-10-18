@@ -54,7 +54,7 @@ public class RandomNumbers {
         rng.generateNumbers();
         rng.sumGoal();
         System.out.println(" ");
-        System.out.println("Najmniejsza wylosowana wartość: " + rng.minimalValue());
-        System.out.println("Największa wylosowana wartość: " + rng.maximalValue());
+        System.out.println("Najmniejsza wylosowana wartość to: " + rng.minimalValue());
+        System.out.println("Największa wylosowana wartość to: " + rng.maximalValue());
     }
 }
