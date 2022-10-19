@@ -16,33 +16,37 @@ public class User {
     }
 
     public static void main(String [] args) {
+        User[] users = initUsers();
+        double avgAge = calculateAverageAge(users);
+        printUsersOlderThan(users, avgAge);
+    }
 
+    private static User[] initUsers() {
         User anna = new User("Anna", 20);
         User betty = new User("Betty", 33);
         User carl = new User("Carl", 58);
         User david = new User("David", 13);
         User eva = new User("Eva", 18);
         User frankie = new User("Frankie", 45);
+        return new User[]{anna, betty, carl, david, eva, frankie};
+    }
 
-        User[] users = {anna, betty, carl, david, eva, frankie};
-
-        System.out.println("The average age is: ");
-        int sum = 0;
+    private static double calculateAverageAge(User[] users) {
+        double sum = 0;
         for(int i = 0; i < users.length; i++) {
             sum = sum + users[i].age;
         }
+        return sum / users.length;
+    }
 
-        int ageAverage = sum / users.length;
-        System.out.println(ageAverage);
-
-        System.out.println();
+    private static void printUsersOlderThan(User[] users, double avgAge) {
         System.out.println("People below the average age are: ");
         for(int i = 0; i < users.length; i++) {
-            if(users[i].getAge() < ageAverage) {
+            if(users[i].getAge() < avgAge) {
                 System.out.println(users[i].getName());
             }
         }
-
-
     }
+
+
 }
