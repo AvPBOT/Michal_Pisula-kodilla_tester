@@ -1,7 +1,8 @@
+import java.util.Scanner;
 public class Grades {
     private int[] grades;
     private int size;
-    double gradeAverage;
+    private double gradeAverage;
 
     public Grades() {
         this.grades = new int[10];
