@@ -26,10 +26,7 @@ public class Colors {
             return nameColor;
         }
     }
-
     public static void main(String[] args) {
-
         Colors.getFirstLetter();
-
     }
 }
