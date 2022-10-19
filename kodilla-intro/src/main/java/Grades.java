@@ -16,15 +16,9 @@ public class Grades {
         this.size++;
     }
     public int returnLast() {
-        if(this.size == 0) {
-            return 0;
-        }
         return this.grades[grades.length - 1];
     }
     public double avg() {
-        if(this.size == 0) {
-            return 0;
-        }
         double sum = 0;
         for (int value:grades) {
             sum = sum + value;
