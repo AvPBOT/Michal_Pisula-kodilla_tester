@@ -19,7 +19,7 @@ public class Grades {
         if(this.size == 0) {
             return 0;
         }
-        return this.grades[grades.length-1];
+        return this.grades[grades.length - 1];
     }
     public double avg() {
         if(this.size == 0) {
@@ -35,9 +35,13 @@ public class Grades {
 
     public static void main(String[] args) {
 
-Grades.add();
-Grades.returnLast();
-Grades.avg();
+        /*
+        Grades gradebook = new Grades();
 
+        gradebook.add();
+        gradebook.returnLast();
+        gradebook.avg();
+
+*/
     }
 }
