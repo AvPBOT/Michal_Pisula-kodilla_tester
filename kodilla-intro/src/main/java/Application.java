@@ -3,7 +3,8 @@ public class Application {
     private double age;
     private double height;
 
-    public Application(String name, double age, double height){
+
+    public Application(String name, double age, double height) {
         this.name = name;
         this.age = age;
         this.height = height;
@@ -23,9 +24,7 @@ public class Application {
 
     public static void main(String[] args) {
         Application adam = new Application("Adam", 40.5, 178);
-        System.out.println("Name: " + adam.name);
-        System.out.println("Age: " + adam.age);
-        System.out.println("Height: " + adam.height);
+        System.out.println("Name: " + adam.name + ", " + "Age: " + adam.age + ", " + "Height: " + adam.height);
         adam.parametersCheck();
 
     }
