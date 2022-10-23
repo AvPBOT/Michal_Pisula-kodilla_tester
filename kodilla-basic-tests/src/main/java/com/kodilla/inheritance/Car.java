@@ -1,4 +1,5 @@
 package com.kodilla.inheritance;
+
 public class Car {
     private int wheels;
     private int seats;
