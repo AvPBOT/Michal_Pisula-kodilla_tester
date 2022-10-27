@@ -13,5 +13,23 @@ public class Application {
         } else {
             System.out.println("Metoda sum nie działa poprawnie dla liczb " + a + " i " + b);
         }
+
+        int subResult = calculator.sub(a,b);
+        boolean correctSub = ResultChecker.assertEquals(-3, subResult);
+        if(correctSub) {
+            System.out.println("Metoda sub działa poprawnie dla liczb " + a + " i " + b);
+        }
+        else {
+            System.out.println("Metoda sub nie działa poprawnie dla liczb " + a + " i " + b);
+        }
+
+        int sqResult = calculator.sq(a);
+        boolean correctSquare = ResultChecker.assertEquals(25, sqResult);
+        if(correctSquare) {
+            System.out.println("Metoda square działa poprawnie dla liczby " + a);
+        }
+        else {
+            System.out.println("Metoda square nie działa poprawnie dla liczby " + a);
+        }
     }
 }

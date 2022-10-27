@@ -6,8 +6,11 @@ public class Calculator {
         return a + b;
     }
 
-    public int subtract(int a, int b) {
+    public int sub(int a, int b) {
         return a - b;
     }
-}
 
+    public int sq(int a) {
+        return a * a;
+    }
+}
