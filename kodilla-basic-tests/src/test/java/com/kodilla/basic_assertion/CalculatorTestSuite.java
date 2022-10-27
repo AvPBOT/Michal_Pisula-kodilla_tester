@@ -11,7 +11,7 @@ public class CalculatorTestSuite {
         int a = 5;
         int b = 8;
         int sumResult = calculator.sum(a, b);
-        assertEquals(13, sumResult, 0.01);
+        assertEquals(13, sumResult);
     }
 
     @Test
@@ -20,7 +20,7 @@ public class CalculatorTestSuite {
         int a = 5;
         int b = 8;
         int subResult = calculator.sub(a,b);
-        assertEquals(-3, subResult, 0.01);
+        assertEquals(-3, subResult);
     }
 
     @Test
@@ -28,7 +28,7 @@ public class CalculatorTestSuite {
         Calculator calculator = new Calculator();
         int a = -5;
         int sqResultNeg = calculator.sq(a);
-        assertEquals(25, sqResultNeg, 0.01);
+        assertEquals(25, sqResultNeg);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class CalculatorTestSuite {
         Calculator calculator = new Calculator();
         int a = 0;
         int sqResultZ = calculator.sq(a);
-        assertEquals(0, sqResultZ, 0.01);
+        assertEquals(0, sqResultZ);
     }
 
     @Test
@@ -44,6 +44,6 @@ public class CalculatorTestSuite {
         Calculator calculator = new Calculator();
         int a = 5;
         int sqResultPos = calculator.sq(a);
-        assertEquals(25, sqResultPos, 0.01);
+        assertEquals(25, sqResultPos);
     }
 }
