@@ -1,4 +1,3 @@
-import java.util.Scanner;
 public class Grades {
     private int[] grades;
     private int size;
@@ -9,40 +8,33 @@ public class Grades {
         this.size = 0;
     }
 
-    public void add(int value) {
+    public void addGrade(int value) {
         if (this.size == 10) {
             return;
         }
         this.grades[this.size] = value;
         this.size++;
     }
+
     public int returnLast() {
         if(this.size == 0) {
             return 0;
         }
         return this.grades[grades.length - 1];
     }
-    public double avg() {
+
+    public double getAverage() {
         if(this.size == 0) {
             return 0;
         }
         double sum = 0;
-        for (int value:grades) {
-            sum = sum + value;
+        for(int i = 0; i < this.grades.length; i++) {
+            sum += this.grades[i];
         }
-        this.gradeAverage = sum / this.size;
-        return this.gradeAverage;
+        return sum/this.grades.length;
     }
 
     public static void main(String[] args) {
 
-        /*
-        Grades gradebook = new Grades();
-
-        gradebook.add();
-        gradebook.returnLast();
-        gradebook.avg();
-
-*/
     }
 }
