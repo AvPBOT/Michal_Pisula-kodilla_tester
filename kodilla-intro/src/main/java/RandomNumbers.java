@@ -2,59 +2,39 @@ import java.util.Random;
 
 public class RandomNumbers {
 
-    private int[] randomNumbers;
-    private int sum;
-    private int min;
-    private int max;
+    private static final Random random = new Random();
 
-
-    public RandomNumbers() {
-        this.randomNumbers = new int[5000];
-    }
+    private int min = 31;
+    private int max = -1;
 
     public void generateNumbers() {
-        for (int i = 0; i < 1; i++) {
-            Random rnd = new Random();
-            randomNumbers[i] = rnd.nextInt(31);
-            sum = sum + randomNumbers[i];
+        int sum = 0;
+        int number;
+        while (sum < 5000) {
+                number = random.nextInt(31);
+                sum += number;
+                if (number < min) {
+                    min = number;
+                }
+                if (number > max) {
+                    max = number;
+                }
         }
     }
 
-    public void sumGoal() {
-        if (sum == 5000) {
-            return;
-        }
-        while(sum < 5000) {
-            this.generateNumbers();
-        }
-    }
-
-    public int minimalValue() {
-        min = randomNumbers[0];
-        for (int i=0; i < randomNumbers.length; i++) {
-            if (randomNumbers[i] < min) {
-                min = randomNumbers[i];
-            }
-        }
+    public int getMin() {
         return min;
     }
 
-    public int maximalValue() {
-        max = randomNumbers[0];
-        for (int i=0; i < randomNumbers.length; i++) {
-            if (randomNumbers[i] > max) {
-                max = randomNumbers[i];
-            }
-        }
+    public int getMax() {
         return max;
     }
 
     public static void main(String[] args) {
         RandomNumbers rng = new RandomNumbers();
         rng.generateNumbers();
-        rng.sumGoal();
         System.out.println();
-        System.out.println("Najmniejsza wylosowana wartość to: " + rng.minimalValue());
-        System.out.println("Największa wylosowana wartość to: " + rng.maximalValue());
+        System.out.println("Najmniejsza wylosowana wartość to: " + rng.getMin());
+        System.out.println("Największa wylosowana wartość to: " + rng.getMax());
     }
 }
