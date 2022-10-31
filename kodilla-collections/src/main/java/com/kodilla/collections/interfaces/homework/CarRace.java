@@ -4,13 +4,13 @@ public class CarRace {
 
     public static void main(String[] args) {
 
-        Ford ford = new Ford(150,15,20);
+        Ford ford = new Ford();
         doRace(ford);
 
-        Opel opel = new Opel(130,20,15);
+        Opel opel = new Opel();
         doRace(opel);
 
-        Volkswagen volkswagen = new Volkswagen(140,25,10);
+        Volkswagen volkswagen = new Volkswagen();
         doRace(volkswagen);
 
     }

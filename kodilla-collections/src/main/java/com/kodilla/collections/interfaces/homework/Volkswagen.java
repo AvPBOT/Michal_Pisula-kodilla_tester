@@ -1,18 +1,10 @@
 package com.kodilla.collections.interfaces.homework;
 
-import java.util.Objects;
-
 public class Volkswagen implements Car {
 
-    double speed;
-    private double acceleration;
-    private double deceleration;
-
-    public Volkswagen(double speed, double acceleration, double deceleration) {
-        this.speed = speed;
-        this.acceleration = acceleration;
-        this.deceleration = deceleration;
-    }
+    private double speed = 140;
+    private double acceleration = 25;
+    private double deceleration = 10;
 
     public double getSpeed() {
         return speed;
@@ -31,7 +23,7 @@ public class Volkswagen implements Car {
         return "Volkswagen{" +
                 "speed=" + speed +
                 ", acceleration=" + acceleration +
-                ", brakes=" + deceleration +
+                ", deceleration=" + deceleration +
                 '}';
     }
 }
