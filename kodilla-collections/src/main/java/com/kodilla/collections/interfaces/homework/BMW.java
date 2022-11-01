@@ -1,12 +1,12 @@
 package com.kodilla.collections.interfaces.homework;
 
-public class Ford implements Car {
+public class BMW implements Car {
 
     private double currentSpeed;
-    private static final double acceleration = 15;
-    private static final double deceleration = 20;
+    private static final double acceleration = 25;
+    private static final double deceleration = 10;
 
-    public Ford(double speed) {
+    public BMW(double speed) {
         currentSpeed = speed;
     }
 
@@ -25,9 +25,10 @@ public class Ford implements Car {
             currentSpeed = 0;
         }
     }
+
     @Override
     public String toString() {
-        return "Ford{" +
+        return "BMW{" +
                 "currentSpeed=" + currentSpeed +
                 '}';
     }

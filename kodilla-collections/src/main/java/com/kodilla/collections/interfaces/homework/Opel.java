@@ -2,34 +2,34 @@ package com.kodilla.collections.interfaces.homework;
 
 public class Opel implements Car {
 
-    double speed;
-    private double acceleration;
-    private double deceleration;
+    private double currentSpeed;
+    private static final double acceleration = 20;
+    private static final double deceleration = 15;
 
-    public Opel(double speed, double acceleration, double deceleration) {
-        this.speed = speed;
-        this.acceleration = acceleration;
-        this.deceleration = deceleration;
+    public Opel(double speed) {
+        currentSpeed = speed;
     }
 
     public double getSpeed() {
-        return speed;
+        return currentSpeed;
     }
 
     public void increaseSpeed() {
-        speed += acceleration;
+        currentSpeed += acceleration;
     }
 
     public void decreaseSpeed() {
-        speed -= deceleration;
+        if (currentSpeed > deceleration) {
+            currentSpeed -= deceleration;
+        } else {
+            currentSpeed = 0;
+        }
     }
 
     @Override
     public String toString() {
         return "Opel{" +
-                "speed=" + speed +
-                ", acceleration=" + acceleration +
-                ", deceleration=" + deceleration +
+                "currentSpeed=" + currentSpeed +
                 '}';
     }
 }
