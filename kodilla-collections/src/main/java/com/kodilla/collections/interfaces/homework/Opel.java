@@ -2,9 +2,15 @@ package com.kodilla.collections.interfaces.homework;
 
 public class Opel implements Car {
 
-    private double speed = 130;
-    private double acceleration = 20;
-    private double deceleration = 15;
+    double speed;
+    private double acceleration;
+    private double deceleration;
+
+    public Opel(double speed, double acceleration, double deceleration) {
+        this.speed = speed;
+        this.acceleration = acceleration;
+        this.deceleration = deceleration;
+    }
 
     public double getSpeed() {
         return speed;
@@ -27,6 +33,3 @@ public class Opel implements Car {
                 '}';
     }
 }
-
-
-

@@ -2,9 +2,15 @@ package com.kodilla.collections.interfaces.homework;
 
 public class Ford implements Car {
 
-    private double speed = 150;
-    private double acceleration = 15;
-    private double deceleration = 20;
+    double speed;
+    private double acceleration;
+    private double deceleration;
+
+    public Ford(double speed, double acceleration, double deceleration) {
+        this.speed = speed;
+        this.acceleration = acceleration;
+        this.deceleration = deceleration;
+    }
 
     public double getSpeed() {
         return speed;
@@ -27,4 +33,3 @@ public class Ford implements Car {
                 '}';
     }
 }
-
