@@ -18,7 +18,7 @@ public class CarUtils {
         } else if (car instanceof Opel) {
             return "Opel";
         } else if (car instanceof BMW) {
-            return "Volkswagen";
+            return "BMW";
         }
         return null;
     }
