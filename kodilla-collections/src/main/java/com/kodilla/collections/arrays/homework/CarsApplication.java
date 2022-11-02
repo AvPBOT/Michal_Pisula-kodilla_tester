@@ -1,9 +1,9 @@
 package com.kodilla.collections.arrays.homework;
 
+import com.kodilla.collections.interfaces.homework.BMW;
 import com.kodilla.collections.interfaces.homework.Car;
 import com.kodilla.collections.interfaces.homework.Ford;
 import com.kodilla.collections.interfaces.homework.Opel;
-import com.kodilla.collections.interfaces.homework.Volkswagen;
 
 import java.util.Random;
 
@@ -22,17 +22,15 @@ public class CarsApplication {
     private static Car drawCar() {
         int drawnCarKind = RANDOM.nextInt(3);
         double a = getRandomValue();
-        double b = getRandomValue();
-        double c = getRandomValue();
 
         if (drawnCarKind == 0) {
-            return new Ford(a,b,c);
+            return new Ford(a);
         }
         else if (drawnCarKind == 1) {
-            return new Opel(a,b,c);
+            return new Opel(a);
         }
         else {
-            return new Volkswagen(a,b,c);
+            return new BMW(a);
         }
     }
 

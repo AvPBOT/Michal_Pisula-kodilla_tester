@@ -3,7 +3,7 @@ package com.kodilla.collections.arrays.homework;
 import com.kodilla.collections.interfaces.homework.Car;
 import com.kodilla.collections.interfaces.homework.Ford;
 import com.kodilla.collections.interfaces.homework.Opel;
-import com.kodilla.collections.interfaces.homework.Volkswagen;
+import com.kodilla.collections.interfaces.homework.BMW;
 
 public class CarUtils {
 
@@ -19,7 +19,7 @@ public class CarUtils {
         else if(car instanceof Opel)
             return "Opel";
 
-        else if(car instanceof Volkswagen)
+        else if(car instanceof BMW)
             return "Volkswagen";
 
         else

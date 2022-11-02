@@ -4,15 +4,14 @@ public class CarRace {
 
     public static void main(String[] args) {
 
-        Ford ford = new Ford(150,15,20);
+        Ford ford = new Ford(0);
         doRace(ford);
 
-        Opel opel = new Opel(130,20,15);
+        Opel opel = new Opel(0);
         doRace(opel);
 
-        Volkswagen volkswagen = new Volkswagen(140,25,10);
-        doRace(volkswagen);
-
+        BMW BMW = new BMW(0);
+        doRace(BMW);
     }
 
     private static void doRace(Car car) {
@@ -22,6 +21,5 @@ public class CarRace {
         car.decreaseSpeed();
         car.decreaseSpeed();
         System.out.println(car.getSpeed());
-
     }
 }
