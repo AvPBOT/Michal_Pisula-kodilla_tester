@@ -10,12 +10,32 @@ public class Agent {
         this.height = height;
     }
 
-    public void checkParameters() {
-        if(this.age > 30 && this.height > 160) {
-            System.out.println(this.name + " is older than 30 and taller than 160 cm.");
+    public String getName() {
+        return name;
+    }
+
+    public double getAge() {
+        return age;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public boolean olderAndHigher() {
+        if(getAge() > 30 && getHeight() > 160) {
+            return true;
+        } else {
+            return false;
         }
-        else {
-            System.out.println(this.name + " is younger than 30 or shorter than 160 cm.");
-        }
+    }
+
+    @Override
+    public String toString() {
+        return "Agent {" +
+                "name = '" + name + '\'' +
+                ", age = " + age +
+                ", height = " + height +
+                '}';
     }
 }
