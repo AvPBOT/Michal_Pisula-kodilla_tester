@@ -22,20 +22,12 @@ public class Agent {
         return height;
     }
 
-    public boolean olderThan() {
-        if(getAge() > 30) {
-            return true;
-        } else {
-            return false;
-        }
+    public boolean isOlderThan() {
+        return getAge() > 30;
     }
 
-    public boolean tallerThan() {
-        if(getHeight() > 160) {
-            return true;
-        } else {
-            return false;
-        }
+    public boolean isTallerThan() {
+        return getHeight() > 160;
     }
 
     @Override
