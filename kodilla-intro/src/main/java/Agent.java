@@ -30,7 +30,7 @@ public class Agent {
         }
     }
 
-    public boolean higherThan() {
+    public boolean tallerThan() {
         if(getHeight() > 160) {
             return true;
         } else {
