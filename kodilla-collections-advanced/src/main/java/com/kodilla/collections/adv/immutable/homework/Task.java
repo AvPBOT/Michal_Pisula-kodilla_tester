@@ -16,4 +16,12 @@ public class Task {
     public int getDuration() {
         return duration;
     }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "title='" + title + '\'' +
+                ", duration=" + duration +
+                '}';
+    }
 }

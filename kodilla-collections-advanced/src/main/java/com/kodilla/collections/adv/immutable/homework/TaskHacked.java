@@ -8,4 +8,12 @@ class TaskHacked extends Task {
     public void modifyTitle(String newTitle) {
         title = newTitle;
     }
+
+    @Override
+    public String toString() {
+        return "TaskHacked{" +
+                "title='" + title + '\'' +
+                ", duration=" + duration +
+                '}';
+    }
 }
