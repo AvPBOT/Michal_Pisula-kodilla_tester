@@ -16,12 +16,12 @@ public class SchoolDirectory {
         School hogwartsStudents = new School(Arrays.asList(65, 22, 41));
         School beauxbatonsStudents = new School(Arrays.asList(49, 53, 21));
         School durmstrangStudents = new School(Arrays.asList(53, 23, 61));
-        School ilvermornyStudentsStudents = new School(Arrays.asList(29, 42, 44));
+        School ilvermornyStudents = new School(Arrays.asList(29, 42, 44));
 
         school.put(albus, hogwartsStudents);
         school.put(olympe, beauxbatonsStudents);
         school.put(igor, durmstrangStudents);
-        school.put(agilbert, ilvermornyStudentsStudents);
+        school.put(agilbert, ilvermornyStudents);
 
         for(Map.Entry<Principal, School> principalEntry : school.entrySet()) {
             System.out.println("Number of students in " + principalEntry.getKey().getForename() + " " + principalEntry.getKey().getSurname() + "'s " + principalEntry.getKey().getSchoolName() + ": " +  principalEntry.getValue().getSum());
