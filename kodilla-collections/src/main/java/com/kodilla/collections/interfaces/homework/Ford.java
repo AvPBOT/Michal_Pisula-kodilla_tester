@@ -25,6 +25,7 @@ public class Ford implements Car {
             currentSpeed = 0;
         }
     }
+
     @Override
     public String toString() {
         return "Ford {" +
