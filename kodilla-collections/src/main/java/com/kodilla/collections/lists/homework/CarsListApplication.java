@@ -1,10 +1,8 @@
 package com.kodilla.collections.lists.homework;
 
 import com.kodilla.collections.arrays.homework.CarUtils;
-import com.kodilla.collections.interfaces.homework.BMW;
+import com.kodilla.collections.arrays.homework.CarsApplication;
 import com.kodilla.collections.interfaces.homework.Car;
-import com.kodilla.collections.interfaces.homework.Ford;
-import com.kodilla.collections.interfaces.homework.Opel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,34 +11,56 @@ public class CarsListApplication {
 
     public static void main(String[] args) {
         List<Car> cars = new ArrayList<>();
-        Ford ford = new Ford(150);
-        cars.add(ford);
-        cars.add(new Ford(155));
-        cars.add(new Ford(160));
-        cars.add(new Opel(130));
-        cars.add(new Opel(135));
-        cars.add(new Opel(140));
-        cars.add(new BMW(140));
-        cars.add(new BMW(145));
-        cars.add(new BMW(150));
+        Car randomCar1 = new CarsApplication().drawCar();
+        cars.add(randomCar1);
+        Car randomCar2 = new CarsApplication().drawCar();
+        cars.add(randomCar2);
+        Car randomCar3 = new CarsApplication().drawCar();
+        cars.add(randomCar3);
+        Car randomCar4 = new CarsApplication().drawCar();
+        cars.add(randomCar4);
+        Car randomCar5 = new CarsApplication().drawCar();
+        cars.add(randomCar5);
+        Car randomCar6 = new CarsApplication().drawCar();
+        cars.add(randomCar6);
+        Car randomCar7 = new CarsApplication().drawCar();
+        cars.add(randomCar7);
+        Car randomCar8 = new CarsApplication().drawCar();
+        cars.add(randomCar8);
+        Car randomCar9 = new CarsApplication().drawCar();
+        cars.add(randomCar9);
 
-        System.out.println("Zawartość kolekcji");
+        int randomIndex = (int) (Math.random() * cars.size());
+
+        System.out.println("Zawartość listy: ");
         for(Car car : cars) {
             CarUtils.describeCar(car);
         }
         System.out.println();
-        System.out.println("Rozmiar kolekcji: " + cars.size());
+        System.out.println("Rozmiar listy: " + cars.size());
 
-        cars.remove(4);
-
-        cars.remove(ford);
-
+        cars.remove(randomIndex);
         System.out.println();
-        System.out.println("Zawartość kolekcji po usunięciu obiektu z indeksem 4 oraz usunięciu obiektu ford: ");
+        System.out.println("------");
+        System.out.println();
+        System.out.println("Zawartość listy po usunięciu pozycji o losowym indeksie przy pomocy remove(int index): ");
+        System.out.println();
         for(Car car : cars) {
             CarUtils.describeCar(car);
         }
         System.out.println();
-        System.out.println("Rozmiar kolekcji: " + cars.size());
+        System.out.println("Rozmiar listy: " + cars.size());
+
+        cars.remove(randomCar6);
+        System.out.println();
+        System.out.println("------");
+        System.out.println();
+        System.out.println("Zawartość listy po usunięciu obiektu randomCar przy pomocy remove(Object o): ");
+        System.out.println();
+        for(Car car : cars) {
+            CarUtils.describeCar(car);
+        }
+        System.out.println();
+            System.out.println("Rozmiar listy: " + cars.size());
     }
 }
