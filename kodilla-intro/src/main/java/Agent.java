@@ -22,8 +22,16 @@ public class Agent {
         return height;
     }
 
-    public boolean olderAndHigher() {
-        if(getAge() > 30 && getHeight() > 160) {
+    public boolean olderThan() {
+        if(getAge() > 30) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean higherThan() {
+        if(getHeight() > 160) {
             return true;
         } else {
             return false;
