@@ -27,13 +27,14 @@ public class CarsApplication {
         if (drawnCarKind == 0) {
             return new Ford(a);
         }
-        else if (drawnCarKind == 1) {
+        if (drawnCarKind == 1) {
             return new Opel(a);
         }
-        else {
+        if (drawnCarKind == 2) {
             return new BMW(a);
         }
-    }
+            return null;
+        }
 
     public static double getRandomValue() {
         return RANDOM.nextDouble() * 100 + 1;

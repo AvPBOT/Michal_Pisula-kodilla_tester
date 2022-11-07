@@ -28,8 +28,8 @@ public class Opel implements Car {
 
     @Override
     public String toString() {
-        return "Opel{" +
-                "currentSpeed=" + currentSpeed +
+        return "Opel {" +
+                "currentSpeed = " + currentSpeed +
                 '}';
     }
 }
