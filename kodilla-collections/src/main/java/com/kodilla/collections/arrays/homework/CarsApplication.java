@@ -32,10 +32,9 @@ public class CarsApplication {
         }
         if (drawnCarKind == 2) {
             return new BMW(a);
-        } else {
-            return null;
         }
-    }
+        return null;
+        }
 
     private static double getRandomValue() {
         return RANDOM.nextDouble() * 100 + 1;
