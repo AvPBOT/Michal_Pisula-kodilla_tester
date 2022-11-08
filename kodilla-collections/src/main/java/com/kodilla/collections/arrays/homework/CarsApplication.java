@@ -22,6 +22,8 @@ public class CarsApplication {
     }
 
     public static Car drawCar() {
+
+
         int drawnCarKind = RANDOM.nextInt(3);
         double a = getRandomValue();
         if (drawnCarKind == 0) {
@@ -33,10 +35,10 @@ public class CarsApplication {
         if (drawnCarKind == 2) {
             return new BMW(a);
         }
-            return null;
+        return null;
         }
 
-    public static double getRandomValue() {
+    private static double getRandomValue() {
         return RANDOM.nextDouble() * 100 + 1;
     }
 }

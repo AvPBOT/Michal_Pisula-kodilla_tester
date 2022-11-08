@@ -6,21 +6,21 @@ import java.util.List;
 public class Grades {
     private List<Double> grades = new ArrayList<>();
 
-    public Grades(double ... grades) {
-        for(double grade: grades) {
-            this.grades.add(grade);
-        }
+    public Grades(List<Double> grades) {
+        this.grades = grades;
     }
 
     public double getAverage() {
         double sum = 0.0;
-        for(double grade: grades)
-            sum+= grade;
-        return sum/ grades.size();
+        for (double grade : grades)
+            sum += grade;
+        return sum / grades.size();
     }
 
     @Override
     public String toString() {
-        return "grades: " + grades + " ";
+        return "Grades{" +
+                "grades=" + grades +
+                '}';
     }
 }
