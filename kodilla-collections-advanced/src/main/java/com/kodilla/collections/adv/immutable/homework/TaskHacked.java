@@ -1,6 +1,9 @@
+/*
 package com.kodilla.collections.adv.immutable.homework;
 
+
 class TaskHacked extends Task {
+
     public TaskHacked(String title, int duration) {
         super(title, duration);
     }
@@ -17,3 +20,4 @@ class TaskHacked extends Task {
                 '}';
     }
 }
+ */
