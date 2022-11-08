@@ -6,7 +6,8 @@ public class BMW implements Car {
     private static final double acceleration = 25;
     private static final double deceleration = 10;
 
-    public BMW(int speed) {
+    public BMW(double speed) {
+
         currentSpeed = speed;
     }
 
@@ -28,8 +29,8 @@ public class BMW implements Car {
 
     @Override
     public String toString() {
-        return "BMW{" +
-                "currentSpeed=" + currentSpeed +
+        return "BMW {" +
+                "currentSpeed = " + currentSpeed +
                 '}';
     }
 }
