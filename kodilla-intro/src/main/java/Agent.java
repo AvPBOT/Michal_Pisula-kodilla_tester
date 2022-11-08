@@ -14,20 +14,20 @@ public class Agent {
         return name;
     }
 
-    public double getAge() {
-        return age;
+    public boolean hasName() {
+        if (this.name != null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public double getHeight() {
-        return height;
+    public boolean isOlderThan(double age) {
+        return this.age > age;
     }
 
-    public boolean isOlderThan() {
-        return getAge() > 30;
-    }
-
-    public boolean isTallerThan() {
-        return getHeight() > 160;
+    public boolean isTallerThan(double height) {
+        return this.height > height;
     }
 
     @Override
