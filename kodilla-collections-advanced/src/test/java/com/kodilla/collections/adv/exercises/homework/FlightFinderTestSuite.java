@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class FlightFinderTestSuite {
 
     @Test
-    public void addFlights() {
+    public void testAddFlights() {
         //when
         FlightRepository.getFlightsTable();
         //then
@@ -25,7 +25,7 @@ class FlightFinderTestSuite {
     }
 
     @Test
-    void findFlightsFromWarsaw() {
+    void testFindFlightsFromWarsaw() {
         //when
         List<Flight> result = FlightFinder.findFlightsFrom("Warsaw");
         //then
@@ -37,7 +37,7 @@ class FlightFinderTestSuite {
     }
 
     @Test
-    void findFlightsFromMunich() {
+    void testFindFlightsFromMunich() {
         //when
         List<Flight> result = FlightFinder.findFlightsFrom("Munich");
         //then
@@ -47,7 +47,7 @@ class FlightFinderTestSuite {
     }
 
     @Test
-    void findFlightsFromRome() {
+    void testFindFlightsFromRome() {
         //when
         List<Flight> result = FlightFinder.findFlightsFrom("Rome");
         //then
@@ -57,7 +57,7 @@ class FlightFinderTestSuite {
     }
 
     @Test
-    void findFlightsFromStockholm() {
+    void testFindFlightsFromStockholm() {
         //when
         List<Flight> result = FlightFinder.findFlightsFrom("Stockholm");
         //then
@@ -67,7 +67,7 @@ class FlightFinderTestSuite {
     }
 
     @Test
-    void findFlightsToWarsaw() {
+    void testFindFlightsToWarsaw() {
         //when
         List<Flight> result = FlightFinder.findFlightsTo("Warsaw");
         //then
@@ -79,7 +79,7 @@ class FlightFinderTestSuite {
     }
 
     @Test
-    void findFlightsToLondon() {
+    void testFindFlightsToLondon() {
         //when
         List<Flight> result = FlightFinder.findFlightsTo("London");
         //then
@@ -89,7 +89,7 @@ class FlightFinderTestSuite {
     }
 
     @Test
-    void findFlightsToMadrid() {
+    void testFindFlightsToMadrid() {
         //when
         List<Flight> result = FlightFinder.findFlightsTo("Madrid");
         //then
@@ -99,7 +99,7 @@ class FlightFinderTestSuite {
     }
 
     @Test
-    void findFlightsToBudapest() {
+    void testFindFlightsToBudapest() {
         //when
         List<Flight> result = FlightFinder.findFlightsTo("Budapest");
         //then
@@ -107,26 +107,23 @@ class FlightFinderTestSuite {
         expectedFlightsTable.add(new Flight("Warsaw", "Budapest"));
         assertEquals(expectedFlightsTable, FlightFinder.findFlightsTo("Budapest"));
     }
-/*
+
     @Test
-    void findNonExistingArrival() {
+    void testFindNonExistingArrival() {
         //when
         List<Flight> result = FlightFinder.findFlightsTo("???");
         //then
         List<Flight> expectedFlightsTable = new ArrayList<>();
-        expectedFlightsTable.add(new Flight("???", "???"));
-        assertEquals(, );
+        assertEquals(expectedFlightsTable, FlightFinder.findFlightsTo("???"));
     }
 
     @Test
-    void findNonExistingDeparture() {
+    void testFindNonExistingDeparture() {
         //when
         List<Flight> result = FlightFinder.findFlightsFrom("???");
         //then
         List<Flight> expectedFlightsTable = new ArrayList<>();
-        expectedFlightsTable.add(new Flight("???", "???"));
-        assertEquals(, );
+        assertEquals(expectedFlightsTable, FlightFinder.findFlightsTo("???"));
     }
- */
 }
 
