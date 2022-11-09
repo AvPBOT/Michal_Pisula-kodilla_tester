@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FlightRepository {
-    static List<Flight> flightsTable;
 
     public static List<Flight> getFlightsTable() {
         List<Flight> flightsTable = new ArrayList<>();
