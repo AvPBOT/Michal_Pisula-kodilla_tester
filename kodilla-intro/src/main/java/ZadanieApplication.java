@@ -25,7 +25,6 @@ public class ZadanieApplication {
             System.out.println("Agent has no name");
         }
 
-
         Agent test2 = new Agent(null, 27, 190);
         System.out.println(test2);
         if (test2.hasName() == true) {
@@ -39,5 +38,3 @@ public class ZadanieApplication {
         }
     }
 }
-
-
