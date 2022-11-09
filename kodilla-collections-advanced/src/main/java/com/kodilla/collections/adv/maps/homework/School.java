@@ -1,10 +1,10 @@
 package com.kodilla.collections.adv.maps.homework;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class School {
-    private List<Integer> students = new ArrayList<>();
+
+    private final List<Integer> students;
 
     public School(List<Integer> students) {
         this.students = students;
