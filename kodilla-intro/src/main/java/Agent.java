@@ -15,10 +15,10 @@ public class Agent {
     }
 
     public boolean hasName() {
-        if (this.name != null) {
-            return true;
-        } else {
+        if (this.name == null) {
             return false;
+        } else {
+            return true;
         }
     }
 
