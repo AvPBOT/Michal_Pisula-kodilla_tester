@@ -5,7 +5,6 @@ import java.util.Set;
 
 public class StampsApplication {
     public static void main(String[] args) {
-
         Set<Stamp> stamps = new HashSet<>();
         stamps.add(new Stamp("British Guiana 1c Magenta", 0.29, 0.26, false));
         stamps.add(new Stamp("Czerwony Mauritius", 0.19, 0.22, true));
@@ -18,7 +17,13 @@ public class StampsApplication {
         for(Stamp stamp: stamps) {
             System.out.println("Dodano do kolekcji: " + stamp);
         }
+
         System.out.println();
         System.out.println("Rozmiar kolekcji: " + stamps.size());
+        if (stamps.size() == 5) {
+            System.out.println("OK, the size of the collection is correct.");
+        } else {
+            System.out.println("Something is bad!");
+        }
     }
 }
