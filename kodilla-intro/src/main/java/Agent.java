@@ -1,8 +1,8 @@
 public class Agent {
 
-    String name;
-    double age;
-    double height;
+    private String name;
+    private double age;
+    private double height;
 
     public Agent(String name, double age, double height) {
         this.name = name;
@@ -10,16 +10,8 @@ public class Agent {
         this.height = height;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public boolean hasName() {
-        if (this.name == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return name != null;
     }
 
     public boolean isOlderThan(double age) {
@@ -28,14 +20,5 @@ public class Agent {
 
     public boolean isTallerThan(double height) {
         return this.height > height;
-    }
-
-    @Override
-    public String toString() {
-        return "Agent {" +
-                "name = '" + name + '\'' +
-                ", age = " + age +
-                ", height = " + height +
-                '}';
     }
 }
