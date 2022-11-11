@@ -25,20 +25,20 @@ public class UsersManager {
         return usernames;
     }
 
-    static List<String> filterOlderThanUsernames(int a) {
+    static List<String> filterOlderThanUsernames(int age) {
         List<String> usernames = UsersRepository.getUsersList()
                 .stream()
-                .filter(user -> user.getAge() > a)
+                .filter(user -> user.getAge() > age)
                 .map(UsersManager::getUserName)
                 .collect(Collectors.toList());
 
         return usernames;
     }
 
-    static List<String> filterChemistsWithNumberOfPostHigherThan(int b) {
+    static List<String> filterChemistsWithNumberOfPostHigherThan(int post) {
         List<String> usernames = UsersRepository.getUsersList()
                 .stream()
-                .filter(user -> (user.getGroup().equals("Chemists")) && user.getNumberOfPost() > b)
+                .filter(user -> (user.getGroup().equals("Chemists")) && user.getNumberOfPost() > post)
                 .map(UsersManager::getUserName)
                 .collect(Collectors.toList());
 
