@@ -3,24 +3,23 @@ package com.kodilla.collections.adv.maps.homework;
 import java.util.List;
 
 public class School {
+    private String schoolName;
+    private List<Integer> students;
 
-    private final List<Integer> students;
-
-    public School(List<Integer> students) {
+    public School(String schoolName, List<Integer> students) {
+        this.schoolName = schoolName;
         this.students = students;
     }
 
-    public double getSum() {
+    public int studentsCount() {
         int sum = 0;
-        for (int student : students)
-            sum += student;
+        for (int count : students) {
+            sum += count;
+        }
         return sum;
     }
 
-    @Override
-    public String toString() {
-        return "School{" +
-                "students=" + students +
-                '}';
+    public String getSchoolName() {
+        return schoolName;
     }
 }
