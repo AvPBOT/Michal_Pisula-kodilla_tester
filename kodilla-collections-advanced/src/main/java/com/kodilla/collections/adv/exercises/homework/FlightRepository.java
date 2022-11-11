@@ -6,14 +6,13 @@ import java.util.List;
 public class FlightRepository {
 
     public static List<Flight> getFlightsTable() {
-        List<Flight> flightsTable = new ArrayList<>();
-        flightsTable.add(new Flight("Warsaw", "London"));
-        flightsTable.add(new Flight("Warsaw", "Madrid"));
-        flightsTable.add(new Flight("Warsaw", "Budapest"));
-        flightsTable.add(new Flight("Munich", "Warsaw"));
-        flightsTable.add(new Flight("Rome", "Warsaw"));
-        flightsTable.add(new Flight("Stockholm", "Warsaw"));
-        return flightsTable;
+        List<Flight> flights = new ArrayList<>();
+        flights.add(new Flight("Warsaw", "London"));
+        flights.add(new Flight("Warsaw", "Madrid"));
+        flights.add(new Flight("Warsaw", "Budapest"));
+        flights.add(new Flight("Munich", "Warsaw"));
+        flights.add(new Flight("Rome", "Warsaw"));
+        flights.add(new Flight("Stockholm", "Warsaw"));
+        return flights;
     }
 }
-
