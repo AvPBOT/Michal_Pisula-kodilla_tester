@@ -11,7 +11,7 @@ public class School {
         this.students = students;
     }
 
-    public int studentsCount() {
+    public int getStudentsCount() {
         int sum = 0;
         for (int count : students) {
             sum += count;

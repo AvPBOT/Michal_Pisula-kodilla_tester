@@ -24,7 +24,7 @@ public class SchoolDirectory {
         wizardingSchools.put(agilbert, ilvermorny);
 
         for(Map.Entry<Principal, School> schoolEntry : wizardingSchools.entrySet()) {
-            System.out.println("Total number of students at " + schoolEntry.getKey().getName() + " " + schoolEntry.getKey().getSurname() + "'s " + schoolEntry.getValue().getSchoolName() + ": " +  schoolEntry.getValue().studentsCount() + ".");
+            System.out.println("Total number of students at " + schoolEntry.getKey().getName() + " " + schoolEntry.getKey().getSurname() + "'s " + schoolEntry.getValue().getSchoolName() + ": " +  schoolEntry.getValue().getStudentsCount() + ".");
         }
     }
 }
