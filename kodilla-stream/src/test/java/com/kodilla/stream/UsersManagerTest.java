@@ -23,7 +23,7 @@ class UsersManagerTest {
     @Test
     void testFilterOlderThanUsernames() {
         // when
-        UsersManager.filterOlderThanUsernames(40);;
+        UsersManager.filterOlderThanUsernames(40);
         // then
         List<String> expectedUsernames = new ArrayList<>();
         expectedUsernames.add("Walter White");
@@ -36,7 +36,7 @@ class UsersManagerTest {
     @Test
     void testFilterChemistsWithNumberOfPostHigherThanUsernames() {
         // when
-        UsersManager.filterChemistsWithNumberOfPostHigherThan(5);;
+        UsersManager.filterChemistsWithNumberOfPostHigherThan(5);
         // then
         List<String> expectedUsernames = new ArrayList<>();
         expectedUsernames.add("Walter White");
