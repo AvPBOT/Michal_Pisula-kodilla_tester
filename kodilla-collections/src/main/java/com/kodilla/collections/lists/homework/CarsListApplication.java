@@ -30,21 +30,14 @@ public class CarsListApplication {
         int randomIndex = random.nextInt(cars.size());
         cars.remove(randomIndex);
         System.out.println();
-        System.out.println("------");
-        System.out.println();
-        System.out.println("Zawartość listy po usunięciu pozycji przy pomocy remove(int index): ");
-        for(Car car : cars) {
-            CarUtils.describeCar(car);
-        }
-        System.out.println();
-        System.out.println("Rozmiar listy: " + cars.size());
+        System.out.println("Usunięto jeden z samochodów z kolekcji, używając do tego metody remove(int index).");
 
         Car randomCar = cars.get(random.nextInt(cars.size()));
         cars.remove(randomCar);
+        System.out.println("Usunięto jeden z samochodów z kolekcji, używając do tego metody remove(Object o).");
+
         System.out.println();
-        System.out.println("------");
-        System.out.println();
-        System.out.println("Zawartość listy po usunięciu obiektu przy pomocy remove(Object o): ");
+        System.out.println("Zawartość listy po usunięciu dwóch obiektów: ");
         for(Car car : cars) {
             CarUtils.describeCar(car);
         }
