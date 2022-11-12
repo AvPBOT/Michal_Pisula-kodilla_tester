@@ -1,49 +1,39 @@
 package com.kodilla.collections.lists.homework;
 
 import com.kodilla.collections.arrays.homework.CarUtils;
-import com.kodilla.collections.arrays.homework.CarsApplication;
 import com.kodilla.collections.interfaces.homework.Car;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
+import static com.kodilla.collections.arrays.homework.CarsApplication.drawCar;
 
 public class CarsListApplication {
 
+    private static Random random = new Random();
+
     public static void main(String[] args) {
         List<Car> cars = new ArrayList<>();
-        Car randomCar1 = new CarsApplication().drawCar();
-        cars.add(randomCar1);
-        Car randomCar2 = new CarsApplication().drawCar();
-        cars.add(randomCar2);
-        Car randomCar3 = new CarsApplication().drawCar();
-        cars.add(randomCar3);
-        Car randomCar4 = new CarsApplication().drawCar();
-        cars.add(randomCar4);
-        Car randomCar5 = new CarsApplication().drawCar();
-        cars.add(randomCar5);
-        Car randomCar6 = new CarsApplication().drawCar();
-        cars.add(randomCar6);
-        Car randomCar7 = new CarsApplication().drawCar();
-        cars.add(randomCar7);
-        Car randomCar8 = new CarsApplication().drawCar();
-        cars.add(randomCar8);
-        Car randomCar9 = new CarsApplication().drawCar();
-        cars.add(randomCar9);
+        int carsCount = random.nextInt((13)+3);
+        for (int n = 0; n < carsCount; n++) {
+            cars.add(drawCar());
+        }
 
-        int randomIndex = (int) (Math.random() * cars.size());
-
-        System.out.println("Zawartość listy po dodaniu 9 obiektów: ");
+        System.out.println("Zawartość listy po dodaniu " + carsCount + " obiektów: ");
+        System.out.println();
         for(Car car : cars) {
             CarUtils.describeCar(car);
         }
         System.out.println();
         System.out.println("Rozmiar listy: " + cars.size());
 
+        int randomIndex = random.nextInt(cars.size());
         cars.remove(randomIndex);
         System.out.println();
         System.out.println("------");
         System.out.println();
-        System.out.println("Zawartość listy po usunięciu jednej pozycji przy pomocy remove(int index): ");
+        System.out.println("Zawartość listy po usunięciu pozycji przy pomocy remove(int index): ");
         System.out.println();
         for(Car car : cars) {
             CarUtils.describeCar(car);
@@ -51,11 +41,12 @@ public class CarsListApplication {
         System.out.println();
         System.out.println("Rozmiar listy: " + cars.size());
 
-        cars.remove(randomCar6);
+        Car randomCar = cars.get(random.nextInt(cars.size()));
+        cars.remove(randomCar);
         System.out.println();
         System.out.println("------");
         System.out.println();
-        System.out.println("Zawartość listy po usunięciu kolejnego obiektu przy pomocy remove(Object o): ");
+        System.out.println("Zawartość listy po usunięciu obiektu przy pomocy remove(Object o): ");
         System.out.println();
         for(Car car : cars) {
             CarUtils.describeCar(car);
