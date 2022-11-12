@@ -14,7 +14,8 @@ public class AirportRepository {
     }
 
     public boolean isAirportInUse(String airport) throws AirportNotFoundException {
-        if (getListOfAirports().containsKey(airport));
+        if (getListOfAirports().containsKey(airport))
+            return getListOfAirports().get(airport);
         throw new AirportNotFoundException();
     }
 }
