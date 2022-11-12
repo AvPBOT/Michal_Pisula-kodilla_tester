@@ -21,7 +21,6 @@ public class CarsListApplication {
         }
 
         System.out.println("Zawartość listy po dodaniu " + carsCount + " obiektów: ");
-        System.out.println();
         for(Car car : cars) {
             CarUtils.describeCar(car);
         }
@@ -34,7 +33,6 @@ public class CarsListApplication {
         System.out.println("------");
         System.out.println();
         System.out.println("Zawartość listy po usunięciu pozycji przy pomocy remove(int index): ");
-        System.out.println();
         for(Car car : cars) {
             CarUtils.describeCar(car);
         }
@@ -47,7 +45,6 @@ public class CarsListApplication {
         System.out.println("------");
         System.out.println();
         System.out.println("Zawartość listy po usunięciu obiektu przy pomocy remove(Object o): ");
-        System.out.println();
         for(Car car : cars) {
             CarUtils.describeCar(car);
         }
