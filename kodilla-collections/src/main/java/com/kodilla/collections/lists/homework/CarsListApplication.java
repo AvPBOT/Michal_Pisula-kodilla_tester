@@ -11,7 +11,7 @@ import static com.kodilla.collections.arrays.homework.CarsApplication.drawCar;
 
 public class CarsListApplication {
 
-    static final Random random = new Random();
+    private static final Random random = new Random();
 
     public static void main(String[] args) {
         List<Car> cars = new ArrayList<>();
