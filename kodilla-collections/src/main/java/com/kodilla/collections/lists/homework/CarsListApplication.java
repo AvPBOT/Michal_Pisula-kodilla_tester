@@ -44,10 +44,10 @@ public class CarsListApplication {
         System.out.println();
             System.out.println("Rozmiar listy: " + cars.size());
 
-            if (cars.size() == (carsCount - 2)) {
-                System.out.println("OK");
-            } else {
-                System.out.println("Something went wrong");
-            }
+        if (cars.size() == (carsCount - 2)) {
+            System.out.println("OK");
+        } else {
+            System.out.println("Something went wrong");
+        }
     }
 }
