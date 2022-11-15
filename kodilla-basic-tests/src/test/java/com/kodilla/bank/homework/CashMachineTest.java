@@ -7,14 +7,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class CashMachineTest {
 
     @Test
-    public void shouldHaveZeroLength() {
+    public void testZeroTransactions() {
         CashMachine transactions = new CashMachine(0);
         int[] values = transactions.getTransactions();
         assertEquals(0, CashMachine.getNumberOfTransactions());
     }
 
     @Test
-    public void shouldAddTransactions() {
+    public void testAddTransactions() {
         CashMachine transactions = new CashMachine(0);
         transactions.addTransaction(400);
         transactions.addTransaction(-200);
@@ -26,16 +26,17 @@ class CashMachineTest {
     }
 
     @Test
-    public void shouldNotAddTransactionsWithValueZero() {
+    public void testNotAddTransactionsWithValueZero() {
         CashMachine transactions = new CashMachine(0);
         transactions.addTransaction(0);
         transactions.addTransaction(0);
-        transactions.addTransaction(0);
-        assertEquals(0, CashMachine.getNumberOfTransactions());
+        transactions.addTransaction(400);
+        transactions.addTransaction(-200);
+        assertEquals(2, CashMachine.getNumberOfTransactions());
     }
 
     @Test
-    public void TestGetBalancePositive() {
+    public void testGetBalancePositive() {
         CashMachine transactions = new CashMachine(0);
         transactions.addTransaction(400);
         transactions.addTransaction(-200);
@@ -45,7 +46,7 @@ class CashMachineTest {
     }
 
     @Test
-    public void TestGetBalanceNegative() {
+    public void testGetBalanceNegative() {
         CashMachine transactions = new CashMachine(0);
         transactions.addTransaction(400);
         transactions.addTransaction(-200);
@@ -56,7 +57,7 @@ class CashMachineTest {
     }
 
     @Test
-    public void TestGetBalanceZero() {
+    public void testGetBalanceZero() {
         CashMachine transactions = new CashMachine(0);
         transactions.addTransaction(400);
         transactions.addTransaction(-400);
