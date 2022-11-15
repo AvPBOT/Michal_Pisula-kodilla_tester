@@ -6,9 +6,7 @@ public class Ford implements Car {
     private static final double acceleration = 15;
     private static final double deceleration = 20;
 
-
     public Ford(double speed) {
-
         currentSpeed = speed;
     }
 

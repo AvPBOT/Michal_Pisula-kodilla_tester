@@ -21,7 +21,9 @@ public class CarsApplication {
         }
     }
 
-    private static Car drawCar() {
+    public static Car drawCar() {
+
+
         int drawnCarKind = RANDOM.nextInt(3);
         double a = getRandomValue();
         if (drawnCarKind == 0) {
