@@ -8,20 +8,58 @@ class CashMachineTest {
 
     @Test
     public void shouldHaveZeroLength() {
-        CashMachine transactions = new CashMachine();
-        int[] values = transactions.getCompletedTransactions();
-        assertEquals(0, values.length);
+        CashMachine transactions = new CashMachine(0);
+        int[] values = transactions.getTransactions();
+        assertEquals(0, CashMachine.getNumberOfTransactions());
     }
 
     @Test
-    public void shouldAddTwoElementsToArray() {
-        CashMachine transactions = new CashMachine();
-        transactions.useCashMachine(400);
-        transactions.useCashMachine(200);
+    public void shouldAddTransactions() {
+        CashMachine transactions = new CashMachine(0);
+        transactions.addTransaction(400);
+        transactions.addTransaction(-200);
 
-        int[] values = transactions.getCompletedTransactions();
-        assertEquals(2, values.length);
+        int[] values = transactions.getTransactions();
+        assertEquals(2, CashMachine.getNumberOfTransactions());
         assertEquals(400, values[0]);
-        assertEquals(200, values[1]);
+        assertEquals(-200, values[1]);
+    }
+
+    @Test
+    public void shouldNotAddTransactionsWithValueZero() {
+        CashMachine transactions = new CashMachine(0);
+        transactions.addTransaction(0);
+        transactions.addTransaction(0);
+        transactions.addTransaction(0);
+        assertEquals(0, CashMachine.getNumberOfTransactions());
+    }
+
+    @Test
+    public void TestGetBalancePositive() {
+        CashMachine transactions = new CashMachine(0);
+        transactions.addTransaction(400);
+        transactions.addTransaction(-200);
+        transactions.addTransaction(-300);
+        transactions.addTransaction(700);
+         assertEquals(600, CashMachine.getBalance());
+    }
+
+    @Test
+    public void TestGetBalanceNegative() {
+        CashMachine transactions = new CashMachine(0);
+        transactions.addTransaction(400);
+        transactions.addTransaction(-200);
+        transactions.addTransaction(-300);
+        transactions.addTransaction(700);
+        transactions.addTransaction(-800);
+        assertEquals(-200, CashMachine.getBalance());
+    }
+
+    @Test
+    public void TestGetBalanceZero() {
+        CashMachine transactions = new CashMachine(0);
+        transactions.addTransaction(400);
+        transactions.addTransaction(-400);
+        assertEquals(0, CashMachine.getBalance());
     }
 }

@@ -1,23 +1,42 @@
 package com.kodilla.bank.homework;
 
 public class CashMachine {
-    private int[] completedTransactions;
-    private int numberOfTransactions;
+    public static int[] transactions;
+    public static int balance;
+    public static int numberOfTransactions;
 
-    public CashMachine() {
+
+    public CashMachine(int balance) {
+        this.transactions = new int[0];
         this.numberOfTransactions = 0;
-        this.completedTransactions = new int[0];
+        this.balance = balance;
     }
 
-    public void useCashMachine(int value) {
-        this.numberOfTransactions++;
-        int[] newTab = new int[this.numberOfTransactions];
-        System.arraycopy(completedTransactions, 0, newTab, 0, completedTransactions.length);
-        newTab[this.numberOfTransactions - 1] = value;
-        this.completedTransactions = newTab;
+    public void addTransaction(int value) {
+        if (value == 0) {
+            return;
+        } else {
+            this.numberOfTransactions++;
+            int[] newTransactions = new int[this.numberOfTransactions];
+            System.arraycopy(transactions, 0, newTransactions, 0, transactions.length);
+            newTransactions[this.numberOfTransactions - 1] = value;
+            this.transactions = newTransactions;
+        }
     }
 
-    public int[] getCompletedTransactions() {
-        return completedTransactions;
+    public int[] getTransactions() {
+        return transactions;
+    }
+
+    public static int getBalance() {
+        balance = 0;
+        for (int i = 0; i < transactions.length; i++) {
+                balance += transactions[i];
+            }
+            return balance;
+    }
+
+    public static int getNumberOfTransactions() {
+        return numberOfTransactions;
     }
 }
