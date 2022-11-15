@@ -8,6 +8,4 @@ public class Bank {
     public int numberOfDeposits;
     public double avgWithdrawal;
     public double avgDeposit;
-
-
 }
