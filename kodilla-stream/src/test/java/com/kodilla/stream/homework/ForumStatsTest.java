@@ -29,16 +29,24 @@ class ForumStatsTest {
     @Test
      void testAvgAboveForty() {
         // when
-        ForumStats.avgAboveForty();
+        ForumStats.getAvgAboveForty();
         // then
-        assertEquals(2.25, ForumStats.avgAboveForty());
+        assertEquals(2.25, ForumStats.getAvgAboveForty(), 0.01);
     }
 
     @Test
     void testAvgBelowForty() {
         // when
-        ForumStats.avgBelowForty();
+        ForumStats.getAvgBelowForty();
         // then
-        assertEquals(2382.0, ForumStats.avgBelowForty());
+        assertEquals(2382.0, ForumStats.getAvgBelowForty(), 0.01);
+    }
+
+    @Test
+    void testAvgAboveFiftyFive() {
+        // when
+        ForumStats.getAvgAboveFiftyFive();
+        // then
+        assertEquals(0.0, ForumStats.getAvgAboveFiftyFive(), 0.01);
     }
 }
