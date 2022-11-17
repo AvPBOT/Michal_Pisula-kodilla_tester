@@ -1,3 +1,4 @@
+
 package com.kodilla.exception.homework;
 
 import java.util.ArrayList;
@@ -16,6 +17,6 @@ public class Warehouse {
                 .stream()
                 .filter(n -> n.getNumber().equals(number))
                 .findAny()
-                .orElseThrow(OrderDoesntExistException::new);
+                .orElseThrow(new OrderDoesntExistException(number));
     }
 }
