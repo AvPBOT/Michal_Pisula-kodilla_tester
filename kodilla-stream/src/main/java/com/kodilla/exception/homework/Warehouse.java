@@ -17,6 +17,6 @@ public class Warehouse {
                 .stream()
                 .filter(n -> n.getNumber().equals(number))
                 .findAny()
-                .orElseThrow(new OrderDoesntExistException(number));
+                .orElseThrow(() -> new OrderDoesntExistException(number));
     }
 }

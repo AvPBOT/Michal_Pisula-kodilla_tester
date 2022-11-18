@@ -12,7 +12,7 @@ public class WarehouseApp {
         try {
             Warehouse.getOrder("4");
         } catch (OrderDoesntExistException e) {
-            e.getLocalizedMessage();
+            System.out.println(new OrderDoesntExistException("4"));
         }
     }
 }
