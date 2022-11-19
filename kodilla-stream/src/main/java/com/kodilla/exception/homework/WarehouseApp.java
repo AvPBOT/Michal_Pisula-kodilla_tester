@@ -12,7 +12,7 @@ public class WarehouseApp {
         try {
             Warehouse.getOrder("4");
         } catch (OrderDoesntExistException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 }
