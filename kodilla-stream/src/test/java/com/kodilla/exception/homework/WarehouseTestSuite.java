@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class WarehouseTestSuite {
 
     @Test
-    public void testThrowException() {
+    public void testGetOrder_withException() {
         Throwable exception = assertThrows(
                 OrderDoesntExistException.class, () -> {
                     Warehouse.addOrder(new Order("1"));
