@@ -1,11 +1,11 @@
 package com.kodilla.bank.homework;
 
 public class Bank {
-    private CashMachine atm1;
-    private CashMachine atm2;
-    private CashMachine atm3;
-    private CashMachine[] allCashMachines;
-    private int size;
+    private final CashMachine atm1;
+    private final CashMachine atm2;
+    private final CashMachine atm3;
+    private final CashMachine[] allCashMachines;
+    private final int size;
 
     public Bank() {
         this.atm1 = new CashMachine();
