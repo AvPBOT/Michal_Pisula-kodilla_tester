@@ -5,62 +5,84 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CashMachineTest {
-
     @Test
-    public void testZeroTransactions() {
-        CashMachine transactions = new CashMachine(0);
-        int[] values = transactions.getTransactions();
-        assertEquals(0, CashMachine.getNumberOfTransactions());
+    public void shouldHaveZeroLength() {
+        CashMachine atm = new CashMachine();
+        assertEquals(0, atm.getNumberOfTransactions());
     }
 
     @Test
-    public void testAddTransactions() {
-        CashMachine transactions = new CashMachine(0);
-        transactions.addTransaction(400);
-        transactions.addTransaction(-200);
-
-        int[] values = transactions.getTransactions();
-        assertEquals(2, CashMachine.getNumberOfTransactions());
-        assertEquals(400, values[0]);
-        assertEquals(-200, values[1]);
+    public void shouldAddTransactions() {
+        CashMachine atm = new CashMachine();
+        atm.addTransaction(400);
+        atm.addTransaction(-200);
+        atm.addTransaction(500);
+        atm.addTransaction(700);
+        atm.addTransaction(-800);
+        assertEquals(5, atm.getNumberOfTransactions());
     }
 
     @Test
-    public void testNotAddTransactionsWithValueZero() {
-        CashMachine transactions = new CashMachine(0);
-        transactions.addTransaction(0);
-        transactions.addTransaction(0);
-        transactions.addTransaction(400);
-        transactions.addTransaction(-200);
-        assertEquals(2, CashMachine.getNumberOfTransactions());
+    public void shouldNotAddTransactionsWithAmountZero() {
+        CashMachine atm = new CashMachine();
+        atm.addTransaction(0);
+        atm.addTransaction(0);
+        atm.addTransaction(0);
+        assertEquals(0, atm.getNumberOfTransactions());
     }
 
     @Test
-    public void testGetBalancePositive() {
-        CashMachine transactions = new CashMachine(0);
-        transactions.addTransaction(400);
-        transactions.addTransaction(-200);
-        transactions.addTransaction(-300);
-        transactions.addTransaction(700);
-         assertEquals(600, CashMachine.getBalance());
+    public void shouldCountTheBalance() {
+        CashMachine atm = new CashMachine();
+        atm.addTransaction(400);
+        atm.addTransaction(-200);
+        atm.addTransaction(500);
+        atm.addTransaction(700);
+        atm.addTransaction(-800);
+        assertEquals(600, atm.getBalance());
     }
 
     @Test
-    public void testGetBalanceNegative() {
-        CashMachine transactions = new CashMachine(0);
-        transactions.addTransaction(400);
-        transactions.addTransaction(-200);
-        transactions.addTransaction(-300);
-        transactions.addTransaction(700);
-        transactions.addTransaction(-800);
-        assertEquals(-200, CashMachine.getBalance());
+    public void shouldCountTheNumberOfDeposits() {
+        CashMachine atm = new CashMachine();
+        atm.addTransaction(400);
+        atm.addTransaction(-200);
+        atm.addTransaction(500);
+        atm.addTransaction(700);
+        atm.addTransaction(-800);
+        assertEquals(3, atm.getNumberOfDeposits());
     }
 
     @Test
-    public void testGetBalanceZero() {
-        CashMachine transactions = new CashMachine(0);
-        transactions.addTransaction(400);
-        transactions.addTransaction(-400);
-        assertEquals(0, CashMachine.getBalance());
+    public void shouldCountTheNumberOfWithdrawals() {
+        CashMachine atm = new CashMachine();
+        atm.addTransaction(400);
+        atm.addTransaction(-200);
+        atm.addTransaction(500);
+        atm.addTransaction(700);
+        atm.addTransaction(-800);
+        assertEquals(2, atm.getNumberOfWithdrawals());
+    }
+
+    @Test
+    public void shouldCountTheAverageDeposit() {
+        CashMachine atm = new CashMachine();
+        atm.addTransaction(400);
+        atm.addTransaction(-200);
+        atm.addTransaction(500);
+        atm.addTransaction(700);
+        atm.addTransaction(-800);
+        assertEquals(533.33, atm.getAverageDeposit(), 0.01);
+    }
+
+    @Test
+    public void shouldCountTheAverageWithdrawal() {
+        CashMachine atm = new CashMachine();
+        atm.addTransaction(400);
+        atm.addTransaction(-200);
+        atm.addTransaction(500);
+        atm.addTransaction(700);
+        atm.addTransaction(-800);
+        assertEquals(-500, atm.getAverageWithdrawal(), 0.01);
     }
 }

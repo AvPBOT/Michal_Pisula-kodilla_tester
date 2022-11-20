@@ -1,42 +1,79 @@
 package com.kodilla.bank.homework;
 
 public class CashMachine {
-    public static int[] transactions;
-    public static int balance;
-    public static int numberOfTransactions;
+    private double[] transactions;
+    private int size;
 
-
-    public CashMachine(int balance) {
-        this.transactions = new int[0];
-        this.numberOfTransactions = 0;
-        this.balance = balance;
+    public CashMachine() {
+        this.transactions = new double[0];
+        this.size = 0;
     }
 
-    public void addTransaction(int value) {
-        if (value == 0) {
+    public void addTransaction(double amount) {
+        if (amount == 0) {
             return;
         } else {
-            this.numberOfTransactions++;
-            int[] newTransactions = new int[this.numberOfTransactions];
-            System.arraycopy(transactions, 0, newTransactions, 0, transactions.length);
-            newTransactions[this.numberOfTransactions - 1] = value;
-            this.transactions = newTransactions;
+            this.size++;
+            double[] newTab = new double[this.size];
+            System.arraycopy(transactions, 0, newTab, 0, transactions.length);
+            newTab[this.size - 1] = amount;
+            this.transactions = newTab;
         }
     }
 
-    public int[] getTransactions() {
-        return transactions;
+    public double getBalance() {
+        double sum = 0;
+        for (double amount : transactions) {
+            sum += amount;
+        }
+        return sum;
     }
 
-    public static int getBalance() {
-        balance = 0;
-        for (int i = 0; i < transactions.length; i++) {
-                balance += transactions[i];
+    public int getNumberOfTransactions() {
+        return transactions.length;
+    }
+
+    public double getNumberOfWithdrawals() {
+        int count = 0;
+        for (double amount : transactions) {
+            if (amount < 0) {
+                count++;
             }
-            return balance;
+        }
+        return count;
     }
 
-    public static int getNumberOfTransactions() {
-        return numberOfTransactions;
+    public double getNumberOfDeposits() {
+        int count = 0;
+        for (double amount : transactions) {
+            if (amount > 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public double getAverageWithdrawal() {
+        double sum = 0;
+        int count = 0;
+        for (double amount : transactions) {
+            if (amount < 0) {
+                sum += amount;
+                count++;
+            }
+        }
+        return sum/count;
+    }
+
+    public double getAverageDeposit() {
+        double sum = 0;
+        int count = 0;
+        for (double amount : transactions) {
+            if (amount > 0) {
+                sum += amount;
+                count++;
+            }
+        }
+        return sum/count;
     }
 }
