@@ -6,91 +6,45 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BankTest {
     @Test
-    public void shouldCountTotalNumberOfTransactionsWithNonZeroAmount() {
+    public void shouldCalculateCorrectAveragesIfValuesAreInRange() {
         Bank bank = new Bank();
-        bank.getAtm1().addTransaction(400);
-        bank.getAtm1().addTransaction(500);
-        bank.getAtm1().addTransaction(-100);
-        bank.getAtm2().addTransaction(300);
-        bank.getAtm2().addTransaction(0);
-        bank.getAtm2().addTransaction(-500);
-        bank.getAtm3().addTransaction(-900);
-        bank.getAtm3().addTransaction(0);
-        bank.getAtm3().addTransaction(700);
-        assertEquals(7, bank.getTotalNumberOfTransactions());
-    }
-    @Test
-    public void shouldCountTotalBalance() {
-        Bank bank = new Bank();
-        bank.getAtm1().addTransaction(400);
-        bank.getAtm1().addTransaction(500);
-        bank.getAtm1().addTransaction(-100);
-        bank.getAtm2().addTransaction(300);
-        bank.getAtm2().addTransaction(0);
-        bank.getAtm2().addTransaction(-500);
-        bank.getAtm3().addTransaction(-900);
-        bank.getAtm3().addTransaction(0);
-        bank.getAtm3().addTransaction(700);
-        assertEquals(400, bank.getTotalBalance(),0.01);
+        bank.addAtm1Transaction(400);
+        bank.addAtm1Transaction(200);
+        bank.addAtm1Transaction(300);
+        bank.addAtm2Transaction(500);
+        bank.addAtm2Transaction(100);
+        bank.addAtm2Transaction(400);
+        bank.addAtm3Transaction(900);
+        bank.addAtm3Transaction(600);
+        bank.addAtm3Transaction(700);
+
+        double atm1Average = bank.getAtm1Average();
+        double atm2Average = bank.getAtm2Average();
+        double atm3Average = bank.getAtm3Average();
+
+        assertEquals(300, atm1Average, 0.01);
+        assertEquals(333.33, atm2Average, 0.01);
+        assertEquals(733.33, atm3Average, 0.01);
     }
 
     @Test
-    public void shouldCountTotalNumberOfWithdrawals() {
+    public void averageShouldBeZeroCashMachinesDontHaveTransactions() {
         Bank bank = new Bank();
-        bank.getAtm1().addTransaction(400);
-        bank.getAtm1().addTransaction(500);
-        bank.getAtm1().addTransaction(-100);
-        bank.getAtm2().addTransaction(300);
-        bank.getAtm2().addTransaction(0);
-        bank.getAtm2().addTransaction(-500);
-        bank.getAtm3().addTransaction(-900);
-        bank.getAtm3().addTransaction(0);
-        bank.getAtm3().addTransaction(700);
-        assertEquals(3, bank.getTotalNumberOfWithdrawals());
+        assertEquals(0, bank.getAverage(), 0.0001);
     }
 
     @Test
-    public void shouldCountTotalNumberOfDeposits() {
+    public void shouldCalculateAllCashMachinesAverage() {
         Bank bank = new Bank();
-        bank.getAtm1().addTransaction(400);
-        bank.getAtm1().addTransaction(500);
-        bank.getAtm1().addTransaction(-100);
-        bank.getAtm2().addTransaction(300);
-        bank.getAtm2().addTransaction(0);
-        bank.getAtm2().addTransaction(-500);
-        bank.getAtm3().addTransaction(-900);
-        bank.getAtm3().addTransaction(0);
-        bank.getAtm3().addTransaction(700);
-        assertEquals(4, bank.getTotalNumberOfDeposits());
-    }
-
-    @Test
-    public void shouldCountAverageDepositValue() {
-        Bank bank = new Bank();
-        bank.getAtm1().addTransaction(400);
-        bank.getAtm1().addTransaction(500);
-        bank.getAtm1().addTransaction(-100);
-        bank.getAtm2().addTransaction(300);
-        bank.getAtm2().addTransaction(0);
-        bank.getAtm2().addTransaction(-500);
-        bank.getAtm3().addTransaction(-900);
-        bank.getAtm3().addTransaction(0);
-        bank.getAtm3().addTransaction(700);
-        assertEquals(475, bank.getAverageDepositValue(),0.01);
-    }
-
-    @Test
-    public void shouldCountAverageWithdrawalValue() {
-        Bank bank = new Bank();
-        bank.getAtm1().addTransaction(400);
-        bank.getAtm1().addTransaction(500);
-        bank.getAtm1().addTransaction(-100);
-        bank.getAtm2().addTransaction(300);
-        bank.getAtm2().addTransaction(0);
-        bank.getAtm2().addTransaction(-500);
-        bank.getAtm3().addTransaction(-900);
-        bank.getAtm3().addTransaction(0);
-        bank.getAtm3().addTransaction(700);
-        assertEquals(-500, bank.getAverageWithdrawalValue(),0.01);
+        bank.addAtm1Transaction(400);
+        bank.addAtm1Transaction(200);
+        bank.addAtm1Transaction(300);
+        bank.addAtm2Transaction(500);
+        bank.addAtm2Transaction(100);
+        bank.addAtm2Transaction(400);
+        bank.addAtm3Transaction(900);
+        bank.addAtm3Transaction(600);
+        bank.addAtm3Transaction(700);
+        assertEquals(455.55, bank.getAverage(), 0.01);
     }
 }
