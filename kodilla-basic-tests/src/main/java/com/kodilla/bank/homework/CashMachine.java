@@ -24,15 +24,16 @@ public class CashMachine {
         return transactions;
     }
 
-    public double getAverage() {
-        if (this.transactions.length == 0) {
-            return 0;
-        }
+    public double getBalance() {
         double sum = 0;
-        for(int i = 0; i < this.transactions.length; i++) {
-            sum += this.transactions[i];
+        for (double value : transactions) {
+            sum += value;
         }
-        return sum/this.transactions.length;
+        return sum;
+    }
+
+    public int getNumberOfAllTransactions() {
+        return transactions.length;
     }
 
     public double getNumberOfWithdrawals() {
@@ -56,6 +57,9 @@ public class CashMachine {
     }
 
     public double getAverageWithdrawal() {
+        if (this.transactions.length == 0) {
+            return 0;
+        }
         double sum = 0;
         int count = 0;
         for (double value : transactions) {
@@ -68,6 +72,9 @@ public class CashMachine {
     }
 
     public double getAverageDeposit() {
+        if (this.transactions.length == 0) {
+            return 0;
+        }
         double sum = 0;
         int count = 0;
         for (double value : transactions) {

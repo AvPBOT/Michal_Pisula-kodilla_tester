@@ -25,6 +25,19 @@ class CashMachineTest {
     }
 
     @Test
+    public void shouldCalculateBalance() {
+        CashMachine cashMachine = new CashMachine();
+        cashMachine.addTransaction(400);
+        cashMachine.addTransaction(-200);
+        cashMachine.addTransaction(0);
+        cashMachine.addTransaction(500);
+        cashMachine.addTransaction(700);
+        cashMachine.addTransaction(-800);
+        assertEquals(600, cashMachine.getBalance());
+    }
+
+
+    @Test
     public void shouldNotAddTransactionsWithAmountZero() {
         CashMachine cashMachine = new CashMachine();
         cashMachine.addTransaction(0);
@@ -33,21 +46,6 @@ class CashMachineTest {
 
         int[] transactions = cashMachine.getTransactions();
         assertEquals(0, transactions.length);
-    }
-
-    @Test
-    public void shouldReturnAverageEqualsZeroIsArrayIsEmpty() {
-        CashMachine cashMachine = new CashMachine();
-        assertEquals(0, cashMachine.getAverage(), 0.0001);
-    }
-
-    @Test
-    public void shouldCalculateAverage() {
-        CashMachine cashMachine = new CashMachine();
-        cashMachine.addTransaction(400);
-        cashMachine.addTransaction(200);
-        cashMachine.addTransaction(500);
-        assertEquals(366.66, cashMachine.getAverage(), 0.01);
     }
 
     @Test
@@ -73,7 +71,7 @@ class CashMachineTest {
     }
 
     @Test
-    public void shouldCountTheAverageDeposit() {
+    public void shouldCalculateTheAverageDeposit() {
         CashMachine cashMachine = new CashMachine();
         cashMachine.addTransaction(400);
         cashMachine.addTransaction(-200);
@@ -84,7 +82,7 @@ class CashMachineTest {
     }
 
     @Test
-    public void shouldCountTheAverageWithdrawal() {
+    public void shouldCalculateTheAverageWithdrawal() {
         CashMachine cashMachine = new CashMachine();
         cashMachine.addTransaction(400);
         cashMachine.addTransaction(-200);

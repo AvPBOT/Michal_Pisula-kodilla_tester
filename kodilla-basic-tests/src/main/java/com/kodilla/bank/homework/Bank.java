@@ -29,20 +29,82 @@ public class Bank {
         }
     }
 
-    public double getAtm1Average() {
-        return this.atm1.getAverage();
+    public double getAtm1Balance() { return this.atm1.getBalance(); }
+
+    public double getAtm2Balance() { return this.atm2.getBalance(); }
+
+    public double getAtm3Balance() { return this.atm3.getBalance(); }
+
+    public double getTotalBalance() {
+        double sum = this.atm1.getBalance() + this.atm2.getBalance() + this.atm3.getBalance();
+        return sum/3;
     }
 
-    public double getAtm2Average() {
-        return this.atm2.getAverage();
+    public double getAtm1NumberOfWithdrawals() {
+        return this.atm1.getNumberOfWithdrawals();
     }
 
-    public double getAtm3Average() {
-        return this.atm3.getAverage();
+    public double getAtm2NumberOfWithdrawals() {
+        return this.atm2.getNumberOfWithdrawals();
     }
 
-    public double getAverage() {
-        double sum = this.atm1.getAverage() + this.atm2.getAverage() + this.atm3.getAverage();
+    public double getAtm3NumberOfWithdrawals() {
+        return this.atm3.getNumberOfWithdrawals();
+    }
+
+    public double getTotalNumberOfWithdrawals() {
+        double sum = this.atm1.getNumberOfWithdrawals() + this.atm2.getNumberOfWithdrawals() + this.atm3.getNumberOfWithdrawals();
+        return sum;
+    }
+
+    public double getAtm1NumberOfDeposits() {
+        return this.atm1.getNumberOfDeposits();
+    }
+
+    public double getAtm2NumberOfDeposits() {
+        return this.atm2.getNumberOfDeposits();
+    }
+
+    public double getAtm3NumberOfDeposits() {
+        return this.atm3.getNumberOfDeposits();
+    }
+
+    public double getTotalNumberOfDeposits() {
+        double sum = this.atm1.getNumberOfDeposits() + this.atm2.getNumberOfDeposits() + this.atm3.getNumberOfDeposits();
+        return sum;
+    }
+
+    public double getAtm1AverageWithdrawal() {
+        return this.atm1.getAverageWithdrawal();
+    }
+
+    public double getAtm2AverageWithdrawal() {
+        return this.atm2.getAverageWithdrawal();
+    }
+
+    public double getAtm3AverageWithdrawal() {
+        return this.atm3.getAverageWithdrawal();
+    }
+
+    public double getTotalAverageWithdrawal() {
+        double sum = this.atm1.getAverageWithdrawal() + this.atm2.getAverageWithdrawal() + this.atm3.getAverageWithdrawal();
+        return sum/3;
+    }
+
+    public double getAtm1AverageDeposit() {
+        return this.atm1.getAverageDeposit();
+    }
+
+    public double getAtm2AverageDeposit() {
+        return this.atm2.getAverageDeposit();
+    }
+
+    public double getAtm3AverageDeposit() {
+        return this.atm3.getAverageDeposit();
+    }
+
+    public double getTotalAverageDeposit() {
+        double sum = this.atm1.getAverageDeposit() + this.atm2.getAverageDeposit() + this.atm3.getAverageDeposit();
         return sum/3;
     }
 }
