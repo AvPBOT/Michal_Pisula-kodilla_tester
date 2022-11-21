@@ -1,6 +1,6 @@
 package com.kodilla.abstracts.homework.job;
 
-public class Person extends Job{
+public class Person extends Job {
     private String firstName;
     private int age;
     private Job job;
