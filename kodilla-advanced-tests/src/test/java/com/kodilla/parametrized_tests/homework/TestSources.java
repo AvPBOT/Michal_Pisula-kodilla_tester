@@ -88,7 +88,7 @@ public class TestSources {
         return Stream.of(
                 Arguments.of(1.50, 134),
                 Arguments.of(1.45, 126),
-                Arguments.of(1.4, 116),
+                Arguments.of(1.40, 116),
                 Arguments.of(1.35, 108)
         );
     }
