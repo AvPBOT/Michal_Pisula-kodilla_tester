@@ -12,5 +12,6 @@ public abstract class Job {
     public String getResponsibilities() {
         return reponsibilities;
     }
+    
     public abstract void showResponsibilities();
 }
