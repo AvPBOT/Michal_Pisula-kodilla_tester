@@ -7,7 +7,7 @@ public class TestSources {
         return Stream.of(
                 Arguments.of(1.95, 56),
                 Arguments.of(1.90, 40),
-                Arguments.of(1.70,42),
+                Arguments.of(1.70, 42),
                 Arguments.of(1.85, 50)
         );
     }
@@ -16,7 +16,7 @@ public class TestSources {
         return Stream.of(
                 Arguments.of(1.95, 60),
                 Arguments.of(1.80, 50),
-                Arguments.of(1.70,46),
+                Arguments.of(1.70, 46),
                 Arguments.of(1.85, 54)
         );
     }
