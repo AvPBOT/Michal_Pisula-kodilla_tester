@@ -9,12 +9,10 @@ class WarehouseTestSuite {
 
     @Test
     public void testGetOrder_withException() {
+        Warehouse warehouse = new Warehouse();
         Throwable exception = assertThrows(
                 OrderDoesntExistException.class, () -> {
-                    Warehouse.addOrder(new Order("1"));
-                    Warehouse.addOrder(new Order("2"));
-                    Warehouse.addOrder(new Order("3"));
-                    Warehouse.getOrder("4");
+                    warehouse.getOrder("4");
                 }
         );
         assertEquals("Order number 4 not found!", exception.getMessage());
