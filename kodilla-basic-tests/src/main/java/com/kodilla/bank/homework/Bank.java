@@ -13,19 +13,19 @@ public class Bank {
 
     public void addAtm1Transaction(int value) {
         if (value != 0) {
-            this.atm1.add(value);
+            this.atm1.addTransaction(value);
         }
     }
 
     public void addAtm2Transaction(int value) {
         if (value != 0) {
-            this.atm2.add(value);
+            this.atm2.addTransaction(value);
         }
     }
 
     public void addAtm3Transaction(int value) {
         if (value != 0) {
-            this.atm3.add(value);
+            this.atm3.addTransaction(value);
         }
     }
 
