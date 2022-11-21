@@ -5,7 +5,7 @@ import java.util.stream.Stream;
 public class TestSources {
     static Stream<Arguments> provideDataForTestingVerySeverelyUnderweight() {
         return Stream.of(
-                Arguments.of( 1.95, 56),
+                Arguments.of(1.95, 56),
                 Arguments.of(1.90, 40),
                 Arguments.of(1.70,42),
                 Arguments.of(1.85, 50)
@@ -14,7 +14,7 @@ public class TestSources {
 
     static Stream<Arguments> provideDataForTestingSeverelyUnderweight() {
         return Stream.of(
-                Arguments.of( 1.95, 60),
+                Arguments.of(1.95, 60),
                 Arguments.of(1.80, 50),
                 Arguments.of(1.70,46),
                 Arguments.of(1.85, 54)
@@ -23,7 +23,7 @@ public class TestSources {
 
     static Stream<Arguments> provideDataForTestingUnderweight() {
         return Stream.of(
-                Arguments.of( 1.95, 68),
+                Arguments.of(1.95, 68),
                 Arguments.of(1.65, 48),
                 Arguments.of(1.75, 54),
                 Arguments.of(1.50, 40)
@@ -32,7 +32,7 @@ public class TestSources {
 
     static Stream<Arguments> provideDataForTestingNormalWeight() {
         return Stream.of(
-                Arguments.of( 1.95, 78),
+                Arguments.of(1.95, 78),
                 Arguments.of(1.50, 52),
                 Arguments.of(1.65, 60),
                 Arguments.of(1.80, 72)
@@ -41,7 +41,7 @@ public class TestSources {
 
     static Stream<Arguments> provideDataForTestingOverweight() {
         return Stream.of(
-                Arguments.of( 1.95, 112),
+                Arguments.of(1.95, 112),
                 Arguments.of(1.75, 90),
                 Arguments.of(1.40, 58),
                 Arguments.of(1.60, 76)
@@ -50,7 +50,7 @@ public class TestSources {
 
     static Stream<Arguments> provideDataForTestingObeseClassI() {
         return Stream.of(
-                Arguments.of( 1.95, 130),
+                Arguments.of(1.95, 130),
                 Arguments.of(1.65, 94),
                 Arguments.of(1.75, 106),
                 Arguments.of(1.55, 84)
@@ -59,7 +59,7 @@ public class TestSources {
 
     static Stream<Arguments> provideDataForTestingObeseClassII() {
         return Stream.of(
-                Arguments.of( 1.85, 136),
+                Arguments.of(1.85, 136),
                 Arguments.of(1.65, 108),
                 Arguments.of(1.50, 88),
                 Arguments.of(1.35, 72)
@@ -68,7 +68,7 @@ public class TestSources {
 
     static Stream<Arguments> provideDataForTestingObeseClassIII() {
         return Stream.of(
-                Arguments.of( 1.75, 136),
+                Arguments.of(1.75, 136),
                 Arguments.of(1.55, 106),
                 Arguments.of(1.45, 94),
                 Arguments.of(1.35, 82)
@@ -77,7 +77,7 @@ public class TestSources {
 
     static Stream<Arguments> provideDataForTestingObeseClassIV() {
         return Stream.of(
-                Arguments.of( 1.65, 134),
+                Arguments.of(1.65, 134),
                 Arguments.of(1.55, 118),
                 Arguments.of(1.35, 90),
                 Arguments.of(1.45, 104)
@@ -86,7 +86,7 @@ public class TestSources {
 
     static Stream<Arguments> provideDataForTestingObeseClassV() {
         return Stream.of(
-                Arguments.of( 1.50, 134),
+                Arguments.of(1.50, 134),
                 Arguments.of(1.45, 126),
                 Arguments.of(1.4, 116),
                 Arguments.of(1.35, 108)
@@ -95,7 +95,7 @@ public class TestSources {
 
     static Stream<Arguments> provideDataForTestingObeseClassVI() {
         return Stream.of(
-                Arguments.of( 1.95, 300),
+                Arguments.of(1.95, 300),
                 Arguments.of(1.80, 210),
                 Arguments.of(1.55, 220),
                 Arguments.of(1.45, 190)
