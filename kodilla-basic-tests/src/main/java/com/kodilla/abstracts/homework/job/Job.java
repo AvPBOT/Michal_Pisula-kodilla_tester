@@ -2,15 +2,15 @@ package com.kodilla.abstracts.homework.job;
 
 public abstract class Job {
     private double salary;
-    private String reponsibilities;
+    private String responsibilities;
 
-    public Job(double salary, String reponsibilities) {
+    public Job(double salary, String responsibilities) {
         this.salary = salary;
-        this.reponsibilities = reponsibilities;
+        this.responsibilities = responsibilities;
     }
 
     public String getResponsibilities() {
-        return reponsibilities;
+        return responsibilities;
     }
     public abstract void showResponsibilities();
 }
