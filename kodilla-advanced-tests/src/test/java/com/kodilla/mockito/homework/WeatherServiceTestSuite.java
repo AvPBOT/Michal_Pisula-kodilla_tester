@@ -8,8 +8,8 @@ public class WeatherServiceTestSuite {
     User user1 = Mockito.mock(User.class);
     User user2 = Mockito.mock(User.class);
     User user3 = Mockito.mock(User.class);
-    WeatherAlert weatherAlert1 = Mockito.mock(WeatherAlert.class);
-    WeatherAlert weatherAlert2 = Mockito.mock(WeatherAlert.class);
+    WeatherAlert LocationAlert = Mockito.mock(WeatherAlert.class);
+    WeatherAlert GlobalAlert = Mockito.mock(WeatherAlert.class);
     Location location = Mockito.mock(Location.class);
     Location location2 = Mockito.mock(Location.class);
 
@@ -18,19 +18,19 @@ public class WeatherServiceTestSuite {
         weatherService.addUser(user1,location);
         weatherService.addNewLocation(user1, location2);
 
-        weatherService.sendAlertFromLocation(location, weatherAlert1);
-        weatherService.sendAlertFromLocation(location2, weatherAlert1);
+        weatherService.sendAlertFromLocation(location, LocationAlert);
+        weatherService.sendAlertFromLocation(location2, LocationAlert);
 
-        Mockito.verify(user1, Mockito.times(2)).receiveAlert(weatherAlert1);
+        Mockito.verify(user1, Mockito.times(2)).receiveAlert(LocationAlert);
     }
 
     @Test
     public void userShouldNotReceiveAlertsFormUnsubscribedLocations() {
         weatherService.addUser(user1, location);
         weatherService.unsubscribeLocation(user1,location);
-        weatherService.sendAlertFromLocation(location, weatherAlert1);
+        weatherService.sendAlertFromLocation(location, LocationAlert);
 
-        Mockito.verify(user1, Mockito.never()).receiveAlert(weatherAlert1);
+        Mockito.verify(user1, Mockito.never()).receiveAlert(LocationAlert);
     }
 
     @Test
@@ -39,9 +39,9 @@ public class WeatherServiceTestSuite {
         weatherService.addNewLocation(user1, location2);
 
         weatherService.unsubscribeAllLocations(user1);
-        weatherService.sendAlertFromLocation(location, weatherAlert1);
-        weatherService.sendAlertFromLocation(location2, weatherAlert1);
-        Mockito.verify(user1, Mockito.never()).receiveAlert(weatherAlert1);
+        weatherService.sendAlertFromLocation(location, LocationAlert);
+        weatherService.sendAlertFromLocation(location2, LocationAlert);
+        Mockito.verify(user1, Mockito.never()).receiveAlert(LocationAlert);
     }
 
     @Test
@@ -50,10 +50,10 @@ public class WeatherServiceTestSuite {
         weatherService.addUser(user2,location2);
         weatherService.addUser(user3,location2);
 
-        weatherService.sendAlertFromLocation(location2, weatherAlert1);
-        Mockito.verify(user1, Mockito.never()).receiveAlert(weatherAlert1);
-        Mockito.verify(user2, Mockito.times(1)).receiveAlert(weatherAlert1);
-        Mockito.verify(user3, Mockito.times(1)).receiveAlert(weatherAlert1);
+        weatherService.sendAlertFromLocation(location2, LocationAlert);
+        Mockito.verify(user1, Mockito.never()).receiveAlert(LocationAlert);
+        Mockito.verify(user2, Mockito.times(1)).receiveAlert(LocationAlert);
+        Mockito.verify(user3, Mockito.times(1)).receiveAlert(LocationAlert);
     }
 
     @Test
@@ -62,10 +62,10 @@ public class WeatherServiceTestSuite {
         weatherService.addUser(user2,location2);
         weatherService.addUser(user3,location2);
 
-        weatherService.sendAlertToAllUsers(weatherAlert2);
-        Mockito.verify(user1, Mockito.times(1)).receiveAlert(weatherAlert2);
-        Mockito.verify(user2, Mockito.times(1)).receiveAlert(weatherAlert2);
-        Mockito.verify(user3, Mockito.times(1)).receiveAlert(weatherAlert2);
+        weatherService.sendAlertToAllUsers(GlobalAlert);
+        Mockito.verify(user1, Mockito.times(1)).receiveAlert(GlobalAlert);
+        Mockito.verify(user2, Mockito.times(1)).receiveAlert(GlobalAlert);
+        Mockito.verify(user3, Mockito.times(1)).receiveAlert(GlobalAlert);
     }
 
     @Test
@@ -76,11 +76,11 @@ public class WeatherServiceTestSuite {
         weatherService.addUser(user3,location);
 
         weatherService.removeLocation(location2);
-        weatherService.sendAlertFromLocation(location2, weatherAlert1);
+        weatherService.sendAlertFromLocation(location2, LocationAlert);
 
-        Mockito.verify(user1, Mockito.never()).receiveAlert(weatherAlert1);
-        Mockito.verify(user2, Mockito.never()).receiveAlert(weatherAlert1);
-        Mockito.verify(user3, Mockito.never()).receiveAlert(weatherAlert1);
+        Mockito.verify(user1, Mockito.never()).receiveAlert(LocationAlert);
+        Mockito.verify(user2, Mockito.never()).receiveAlert(LocationAlert);
+        Mockito.verify(user3, Mockito.never()).receiveAlert(LocationAlert);
 
     }
 }
