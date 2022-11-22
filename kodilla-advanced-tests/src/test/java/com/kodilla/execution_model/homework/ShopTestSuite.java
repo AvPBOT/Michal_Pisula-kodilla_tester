@@ -81,7 +81,7 @@ class ShopTestSuite {
 
     @Test
     public void shouldReturnNullIfMinGreaterThanMaxInGetOrderFromARangeOfValues() {
-        assertNull(shop.getOrdersByMinMaxValue(??,?));
+        assertNull(shop.getOrderFromARangeOfValues(??,?));
     }
 
     @Test
