@@ -14,7 +14,7 @@ public class WeatherService {
         users.put(user, locations);
     }
 
-    public void sendAlertFromLocation(Location location, Alert locationAlert){
+    public void sendAlertForLocation(Location location, Alert locationAlert){
         for(Map.Entry<User,Set<Location>> user : users.entrySet()) {
             if (user.getValue().contains(location)) {
                 user.getKey().receiveAlert(locationAlert);
@@ -22,7 +22,7 @@ public class WeatherService {
         }
     }
 
-    public void addNewLocation(User user, Location location) {
+    public void subscribeNewLocation(User user, Location location) {
         users.get(user).add(location);
     }
 
