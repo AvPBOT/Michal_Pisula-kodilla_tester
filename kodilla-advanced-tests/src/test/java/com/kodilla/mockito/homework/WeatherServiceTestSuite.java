@@ -8,8 +8,8 @@ public class WeatherServiceTestSuite {
     User user1 = Mockito.mock(User.class);
     User user2 = Mockito.mock(User.class);
     User user3 = Mockito.mock(User.class);
-    WeatherAlert LocationAlert = Mockito.mock(WeatherAlert.class);
-    WeatherAlert GlobalAlert = Mockito.mock(WeatherAlert.class);
+    Alert LocationAlert = Mockito.mock(Alert.class);
+    Alert GlobalAlert = Mockito.mock(Alert.class);
     Location location = Mockito.mock(Location.class);
     Location location2 = Mockito.mock(Location.class);
 
@@ -27,7 +27,7 @@ public class WeatherServiceTestSuite {
     @Test
     public void userShouldNotReceiveAlertsFormUnsubscribedLocations() {
         weatherService.addUser(user1, location);
-        weatherService.unsubscribeLocation(user1,location);
+        weatherService.unsubscribeLocation(user1, location);
         weatherService.sendAlertFromLocation(location, LocationAlert);
 
         Mockito.verify(user1, Mockito.never()).receiveAlert(LocationAlert);

@@ -14,10 +14,10 @@ public class WeatherService {
         users.put(user, locations);
     }
 
-    public void sendAlertFromLocation(Location location, WeatherAlert weatherAlert){
+    public void sendAlertFromLocation(Location location, Alert locationAlert){
         for(Map.Entry<User,Set<Location>> user : users.entrySet()) {
             if (user.getValue().contains(location)) {
-                user.getKey().receiveAlert(weatherAlert);
+                user.getKey().receiveAlert(locationAlert);
             }
         }
     }
@@ -34,9 +34,9 @@ public class WeatherService {
         users.put(user, new HashSet<>());
     }
 
-    public void sendAlertToAllUsers(WeatherAlert weatherAlert) {
+    public void sendAlertToAllUsers(Alert globalAlert) {
         for(Map.Entry<User,Set<Location>> user : users.entrySet()) {
-            user.getKey().receiveAlert(weatherAlert);
+            user.getKey().receiveAlert(globalAlert);
         }
     }
 
