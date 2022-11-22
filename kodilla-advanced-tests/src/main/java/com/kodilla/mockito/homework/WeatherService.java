@@ -14,10 +14,10 @@ public class WeatherService {
         users.put(user, locations);
     }
 
-    public void sendAlertForLocation(Location location, Alert locationAlert){
+    public void sendAlertForLocation(Location location, Alert localAlert){
         for(Map.Entry<User,Set<Location>> user : users.entrySet()) {
             if (user.getValue().contains(location)) {
-                user.getKey().receiveAlert(locationAlert);
+                user.getKey().receiveAlert(localAlert);
             }
         }
     }
