@@ -1,9 +1,6 @@
 package com.kodilla.execution_model.homework;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.Date;
 import java.util.Set;
@@ -15,12 +12,26 @@ class ShopTestSuite {
     Order order2 = new Order(343, Date(int year, int month, int date), "customer2");
     Order order3 = new Order(893, Date(int year, int month, int date), "customer3"); // itd.
 
+    @BeforeAll
+    public static void displayIntroMessage() {
+        System.out.println("Starting testing");
+    }
+
+    @AfterAll
+    public static void displayGoodByeMessage() {
+        System.out.println("Finishing testing");
+    }
 
     @BeforeEach
     public void initShop() {
         shop.addOrder(order1);
         shop.addOrder(order2);
         shop.addOrder(order3); // itd.
+    }
+
+    @AfterEach
+    public void reset() {
+        System.out.println("Resetting...");
     }
 
     @Test
@@ -87,15 +98,5 @@ class ShopTestSuite {
         double sum = shop.getTotalValueOfAllOrders();
         //then
         assertEquals(?, sum);
-    }
-
-    @BeforeAll
-    public static void displayIntroMessage() {
-        System.out.println("Starting testing");
-    }
-
-    @AfterAll
-    public static void displayGoodByeMessage() {
-        System.out.println("Finishing testing");
     }
 }
