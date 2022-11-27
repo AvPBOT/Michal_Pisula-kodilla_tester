@@ -4,107 +4,74 @@ public class Bank {
     private CashMachine atm1;
     private CashMachine atm2;
     private CashMachine atm3;
+    private CashMachine[] allCashMachines;
+    private int size;
+
 
     public Bank() {
         this.atm1 = new CashMachine();
         this.atm2 = new CashMachine();
         this.atm3 = new CashMachine();
+        this.allCashMachines = new CashMachine[3];
+        this.allCashMachines[0] = atm1;
+        this.allCashMachines[1] = atm2;
+        this.allCashMachines[2] = atm3;
+        this.size = allCashMachines.length;
     }
 
-    public void addAtm1Transaction(int value) {
-        if (value != 0) {
-            this.atm1.addTransaction(value);
-        }
+    public CashMachine getAtm1() {
+        return this.atm1;
     }
 
-    public void addAtm2Transaction(int value) {
-        if (value != 0) {
-            this.atm2.addTransaction(value);
-        }
+    public CashMachine getAtm2() {
+        return this.atm2;
     }
 
-    public void addAtm3Transaction(int value) {
-        if (value != 0) {
-            this.atm3.addTransaction(value);
-        }
+    public CashMachine getAtm3() {
+        return this.atm3;
     }
-
-    public double getAtm1Balance() { return this.atm1.getBalance(); }
-
-    public double getAtm2Balance() { return this.atm2.getBalance(); }
-
-    public double getAtm3Balance() { return this.atm3.getBalance(); }
 
     public double getTotalBalance() {
-        double sum = this.atm1.getBalance() + this.atm2.getBalance() + this.atm3.getBalance();
-        return sum/3;
-    }
-
-    public double getAtm1NumberOfWithdrawals() {
-        return this.atm1.getNumberOfWithdrawals();
-    }
-
-    public double getAtm2NumberOfWithdrawals() {
-        return this.atm2.getNumberOfWithdrawals();
-    }
-
-    public double getAtm3NumberOfWithdrawals() {
-        return this.atm3.getNumberOfWithdrawals();
+        double sum = 0;
+        for (int i=0; i < size; i++) {
+            sum += allCashMachines[i].getBalance();
+        }
+        return sum;
     }
 
     public double getTotalNumberOfWithdrawals() {
-        double sum = this.atm1.getNumberOfWithdrawals() + this.atm2.getNumberOfWithdrawals() + this.atm3.getNumberOfWithdrawals();
+        double sum = 0;
+        for (int i=0; i < size; i++) {
+            sum += allCashMachines[i].getNumberOfWithdrawals();
+        }
         return sum;
-    }
-
-    public double getAtm1NumberOfDeposits() {
-        return this.atm1.getNumberOfDeposits();
-    }
-
-    public double getAtm2NumberOfDeposits() {
-        return this.atm2.getNumberOfDeposits();
-    }
-
-    public double getAtm3NumberOfDeposits() {
-        return this.atm3.getNumberOfDeposits();
     }
 
     public double getTotalNumberOfDeposits() {
-        double sum = this.atm1.getNumberOfDeposits() + this.atm2.getNumberOfDeposits() + this.atm3.getNumberOfDeposits();
+        double sum = 0;
+        for (int i=0; i < size; i++) {
+            sum += allCashMachines[i].getNumberOfDeposits();
+        }
         return sum;
     }
 
-    public double getAtm1AverageWithdrawal() {
-        return this.atm1.getAverageWithdrawal();
-    }
-
-    public double getAtm2AverageWithdrawal() {
-        return this.atm2.getAverageWithdrawal();
-    }
-
-    public double getAtm3AverageWithdrawal() {
-        return this.atm3.getAverageWithdrawal();
-    }
-
     public double getTotalAverageWithdrawal() {
-        double sum = this.atm1.getAverageWithdrawal() + this.atm2.getAverageWithdrawal() + this.atm3.getAverageWithdrawal();
-        return sum/3;
-    }
-
-    public double getAtm1AverageDeposit() {
-        return this.atm1.getAverageDeposit();
-    }
-
-    public double getAtm2AverageDeposit() {
-        return this.atm2.getAverageDeposit();
-    }
-
-    public double getAtm3AverageDeposit() {
-        return this.atm3.getAverageDeposit();
+        double sum = 0;
+        int count = 0;
+        for (int i=0; i < size; i++) {
+            sum += allCashMachines[i].getAverageWithdrawal();
+            count++;
+        }
+        return sum/count;
     }
 
     public double getTotalAverageDeposit() {
-        double sum = this.atm1.getAverageDeposit() + this.atm2.getAverageDeposit() + this.atm3.getAverageDeposit();
-        return sum/3;
+        double sum = 0;
+        int count = 0;
+        for (int i=0; i < size; i++) {
+            sum += allCashMachines[i].getAverageDeposit();
+            count++;
+        }
+        return sum/count;
     }
 }

@@ -2,6 +2,7 @@ package com.kodilla.bank.homework;
 
 import org.junit.jupiter.api.Test;
 
+import static java.lang.Double.NaN;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CashMachineTest {
@@ -38,7 +39,7 @@ class CashMachineTest {
 
 
     @Test
-    public void shouldNotAddTransactionsWithAmountZero() {
+    public void shouldNotAddTransactionsWithValueZero() {
         CashMachine cashMachine = new CashMachine();
         cashMachine.addTransaction(0);
         cashMachine.addTransaction(0);
@@ -82,6 +83,15 @@ class CashMachineTest {
     }
 
     @Test
+    public void shouldCalculateTheAverageDepositButThereAreNoDeposits() {
+        CashMachine cashMachine = new CashMachine();
+        cashMachine.addTransaction(0);
+        cashMachine.addTransaction(-200);
+        cashMachine.addTransaction(-800);
+        assertEquals(NaN, cashMachine.getAverageDeposit());
+    }
+
+    @Test
     public void shouldCalculateTheAverageWithdrawal() {
         CashMachine cashMachine = new CashMachine();
         cashMachine.addTransaction(400);
@@ -90,5 +100,14 @@ class CashMachineTest {
         cashMachine.addTransaction(700);
         cashMachine.addTransaction(-800);
         assertEquals(-500, cashMachine.getAverageWithdrawal(), 0.01);
+    }
+
+    @Test
+    public void shouldCalculateTheAverageWithdrawalButThereAreNoWithdrawals() {
+        CashMachine cashMachine = new CashMachine();
+        cashMachine.addTransaction(400);
+        cashMachine.addTransaction(500);
+        cashMachine.addTransaction(700);
+        assertEquals(NaN, cashMachine.getAverageWithdrawal());
     }
 }

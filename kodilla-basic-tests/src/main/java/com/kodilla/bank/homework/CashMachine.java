@@ -5,8 +5,8 @@ public class CashMachine {
     private int size;
 
     public CashMachine() {
-        this.size = 0;
         this.transactions = new int[0];
+        this.size = 0;
     }
 
     public void addTransaction(int value) {
@@ -30,10 +30,6 @@ public class CashMachine {
             sum += value;
         }
         return sum;
-    }
-
-    public int getNumberOfAllTransactions() {
-        return transactions.length;
     }
 
     public double getNumberOfWithdrawals() {
