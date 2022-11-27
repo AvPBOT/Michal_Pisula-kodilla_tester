@@ -1,3 +1,4 @@
+
 package com.kodilla.stream.homework;
 
 import com.kodilla.stream.User;
@@ -6,25 +7,43 @@ import com.kodilla.stream.UsersRepository;
 import java.util.List;
 
 public class ForumStats {
-    public static void main(String[] args) {
-        List<User> users = UsersRepository.getUsersList();
+    private List<User> users;
 
-        double avgAboveForty = users
-                .stream()
+    public ForumStats(List<User> usersList) {
+        this.users = usersList;
+    }
+
+    public double avgAboveForty() {
+        return this.users.stream()
                 .filter(u -> u.getAge() >= 40)
                 .map(User::getNumberOfPost)
                 .mapToDouble(n -> n)
                 .average()
                 .orElse(Double.NaN);
-        System.out.println("Average number of posts by users whose age is >= 40: " + avgAboveForty);
+    }
 
-        double avgBelowForty = users
-                .stream()
+
+    public double avgBelowForty() {
+        return this.users.stream()
                 .filter(u -> u.getAge() < 40)
                 .map(User::getNumberOfPost)
                 .mapToDouble(n -> n)
                 .average()
                 .orElse(Double.NaN);
-        System.out.println("Average number of posts by users whose age is < 40: " + avgBelowForty);
+    }
+
+    public double getAvgAboveForty() {
+        return avgAboveForty();
+    }
+
+    public double getAvgBelowForty() {
+        return avgBelowForty();
+    }
+
+    public static void main(String[] args) {
+        ForumStats forumStats = new ForumStats(UsersRepository.getUsersList());
+        System.out.println("Average number of posts by users whose age is < 40: " + forumStats.getAvgAboveForty());
+        System.out.println("Average number of posts by users whose age is >= 40: " + forumStats.getAvgBelowForty());
     }
 }
+
