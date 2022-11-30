@@ -32,18 +32,10 @@ public class ForumStats {
                 .orElse(Double.NaN);
     }
 
-    public double getAvgAboveForty() {
-        return avgAboveForty();
-    }
-
-    public double getAvgBelowForty() {
-        return avgBelowForty();
-    }
-
     public static void main(String[] args) {
         ForumStats forumStats = new ForumStats(UsersRepository.getUsersList());
-        System.out.println("Average number of posts by users whose age is < 40: " + forumStats.getAvgAboveForty());
-        System.out.println("Average number of posts by users whose age is >= 40: " + forumStats.getAvgBelowForty());
+        System.out.println("Average number of posts by users whose age is < 40: " + forumStats.avgAboveForty());
+        System.out.println("Average number of posts by users whose age is >= 40: " + forumStats.avgBelowForty());
     }
 }
 

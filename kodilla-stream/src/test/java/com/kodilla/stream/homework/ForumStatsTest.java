@@ -1,6 +1,7 @@
 package com.kodilla.stream.homework;
 
 import com.kodilla.stream.User;
+import com.kodilla.stream.UsersRepository;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -13,9 +14,9 @@ class ForumStatsTest {
     @Test
      void testAvgAboveFortyForUsersRepository() {
         // given
-        testee = new ForumStats(List.of(new User("Walter White", 50, 7, "Chemists"), new User("Jessie Pinkman", 25, 4648, "Sales"), new User("Tuco Salamanca", 34, 116, "Manager"), new User("Gus Firing", 49, 0, "Board"), new User("Gale Boetticher", 44, 2, "Chemists"), new User("Mike Ehrmantraut", 57, 0, "Security")));
+        testee = new ForumStats(UsersRepository.getUsersList());
         // then
-        assertEquals(2.25, testee.getAvgAboveForty(), 0.01);
+        assertEquals(2.25, testee.avgAboveForty(), 0.01);
     }
 
     @Test
@@ -23,15 +24,15 @@ class ForumStatsTest {
         // given
         testee = new ForumStats(List.of(new User("Walter White", 1, 0, "Chemists"), new User("Jessie Pinkman", 25, 0, "Sales"), new User("Tuco Salamanca", 34, 0, "Manager"), new User("Gus Firing", 2, 0, "Board"), new User("Gale Boetticher", 3, 0, "Chemists"), new User("Mike Ehrmantraut", 4, 0, "Security")));
         // then
-        assertEquals(Double.NaN, testee.getAvgAboveForty());
+        assertEquals(Double.NaN, testee.avgAboveForty());
     }
 
     @Test
     void testAvgBelowFortyForUsersRepository() {
         // given
-        testee = new ForumStats(List.of(new User("Walter White", 50, 7, "Chemists"), new User("Jessie Pinkman", 25, 4648, "Sales"), new User("Tuco Salamanca", 34, 116, "Manager"), new User("Gus Firing", 49, 0, "Board"), new User("Gale Boetticher", 44, 2, "Chemists"), new User("Mike Ehrmantraut", 57, 0, "Security")));
+        testee = new ForumStats(UsersRepository.getUsersList());
         // then
-        assertEquals(2382.0, testee.getAvgBelowForty(), 0.01);
+        assertEquals(2382.0, testee.avgBelowForty(), 0.01);
     }
 
     @Test
@@ -39,6 +40,6 @@ class ForumStatsTest {
         // given
         testee = new ForumStats(List.of(new User("Walter White", 50, 7, "Chemists"), new User("Jessie Pinkman", 40, 4648, "Sales"), new User("Tuco Salamanca", 41, 116, "Manager"), new User("Gus Firing", 49, 0, "Board"), new User("Gale Boetticher", 44, 2, "Chemists"), new User("Mike Ehrmantraut", 57, 0, "Security")));
         // then
-        assertEquals(Double.NaN, testee.getAvgBelowForty());
+        assertEquals(Double.NaN, testee.avgBelowForty());
     }
 }
