@@ -1,34 +1,20 @@
 package com.kodilla.bank.homework;
 
 public class Bank {
-    private CashMachine atm1;
-    private CashMachine atm2;
-    private CashMachine atm3;
     private CashMachine[] allCashMachines;
     private int size;
 
-
     public Bank() {
-        this.atm1 = new CashMachine();
-        this.atm2 = new CashMachine();
-        this.atm3 = new CashMachine();
-        this.allCashMachines = new CashMachine[3];
-        this.allCashMachines[0] = atm1;
-        this.allCashMachines[1] = atm2;
-        this.allCashMachines[2] = atm3;
+        this.allCashMachines = new CashMachine[0];
         this.size = allCashMachines.length;
     }
 
-    public CashMachine getAtm1() {
-        return this.atm1;
-    }
-
-    public CashMachine getAtm2() {
-        return this.atm2;
-    }
-
-    public CashMachine getAtm3() {
-        return this.atm3;
+    public void addCashMachine(CashMachine cashMachine) {
+        this.size++;
+        CashMachine[] newTab = new CashMachine[this.size];
+        System.arraycopy(allCashMachines, 0, newTab, 0, allCashMachines.length);
+        newTab[this.size - 1] = cashMachine;
+        this.allCashMachines = newTab;
     }
 
     public double getTotalBalance() {
