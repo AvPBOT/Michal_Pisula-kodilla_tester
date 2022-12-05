@@ -24,5 +24,4 @@ class SimpleApplicationTestSuite {
         String message = bean.processMessage("Test", "Any receiver");
         Assertions.assertEquals("Sending [Test] to: Any receiver using Skype", message);
     }
-
 }
