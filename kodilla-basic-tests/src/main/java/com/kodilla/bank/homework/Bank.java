@@ -1,63 +1,53 @@
 package com.kodilla.bank.homework;
 
 public class Bank {
-    private CashMachine[] allCashMachines;
-    private int size;
+    private CashMachine[] cashMachines;
 
-    public Bank() {
-        this.allCashMachines = new CashMachine[0];
-        this.size = allCashMachines.length;
-    }
-
-    public void addCashMachine(CashMachine cashMachine) {
-        this.size++;
-        CashMachine[] newTab = new CashMachine[this.size];
-        System.arraycopy(allCashMachines, 0, newTab, 0, allCashMachines.length);
-        newTab[this.size - 1] = cashMachine;
-        this.allCashMachines = newTab;
+    public Bank(CashMachine[] cashMachines) {
+        this.cashMachines = cashMachines;
     }
 
     public double getTotalBalance() {
-        double sum = 0;
-        for (int i=0; i < size; i++) {
-            sum += allCashMachines[i].getBalance();
+        double balance = 0;
+        for (CashMachine cashMachine : cashMachines) {
+            balance += cashMachine.getBalance();
         }
-        return sum;
+        return balance;
     }
 
     public double getTotalNumberOfWithdrawals() {
-        double sum = 0;
-        for (int i=0; i < size; i++) {
-            sum += allCashMachines[i].getNumberOfWithdrawals();
+        double numberOfWithdrawals = 0;
+        for (CashMachine cashMachine : cashMachines) {
+            numberOfWithdrawals += cashMachine.getNumberOfWithdrawals();
         }
-        return sum;
+        return numberOfWithdrawals;
     }
 
-    public double getTotalNumberOfDeposits() {
-        double sum = 0;
-        for (int i=0; i < size; i++) {
-            sum += allCashMachines[i].getNumberOfDeposits();
+    public double getTotalNumberOfDeposits () {
+        double numberOfDeposits = 0;
+        for (CashMachine cashMachine : cashMachines) {
+            numberOfDeposits += cashMachine.getNumberOfDeposits();
         }
-        return sum;
+        return numberOfDeposits;
     }
 
-    public double getTotalAverageWithdrawal() {
-        double sum = 0;
+    public double getTotalAverageWithdrawal () {
+        double averageWithdrawal = 0;
         int count = 0;
-        for (int i=0; i < size; i++) {
-            sum += allCashMachines[i].getAverageWithdrawal();
+        for (CashMachine cashMachine : cashMachines) {
+            averageWithdrawal += cashMachine.getAverageWithdrawal();
             count++;
         }
-        return sum/count;
+        return averageWithdrawal / count;
     }
 
-    public double getTotalAverageDeposit() {
-        double sum = 0;
+        public double getTotalAverageDeposit () {
+        double averageDeposit = 0;
         int count = 0;
-        for (int i=0; i < size; i++) {
-            sum += allCashMachines[i].getAverageDeposit();
+        for (CashMachine cashMachine : cashMachines) {
+            averageDeposit += cashMachine.getAverageDeposit();
             count++;
         }
-        return sum/count;
+        return averageDeposit / count;
     }
 }
