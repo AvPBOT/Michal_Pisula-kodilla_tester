@@ -12,11 +12,11 @@ class ClockTestSuite {
     @Test
     public void shouldShowADifferentTime() {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Clock firstBean = context.getBean(Clock.class);
-        Clock secondBean = context.getBean(Clock.class);
-        Clock thirdBean = context.getBean(Clock.class);
-        Assertions.assertNotEquals(firstBean, secondBean);
-        Assertions.assertNotEquals(secondBean, thirdBean);
-        Assertions.assertNotEquals(firstBean, thirdBean);
+        Clock clock1 = context.getBean(Clock.class);
+        Clock clock2 = context.getBean(Clock.class);
+        Clock clock3 = context.getBean(Clock.class);
+        Assertions.assertNotEquals(clock1.getTime(), clock2.getTime());
+        Assertions.assertEquals(clock2.getTime(), clock3.getTime()); // ????
+        Assertions.assertNotEquals(clock1.getTime(), clock3.getTime());
     }
 }
