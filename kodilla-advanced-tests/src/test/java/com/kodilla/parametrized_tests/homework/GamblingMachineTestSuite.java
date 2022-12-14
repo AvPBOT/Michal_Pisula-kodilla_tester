@@ -6,7 +6,6 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -20,24 +19,22 @@ class GamblingMachineTestSuite {
     public void testHowManyWins(String numbers) throws InvalidNumbersException {
         String[] stringNumbers = numbers.split(",");
         Set<String> numbersSet = new HashSet<>(Arrays.asList(stringNumbers));
-        List<Integer> myNumbers = numbersSet
+        Set<Integer> myNumbers = numbersSet
                 .stream()
                 .map(u -> Integer.parseInt(u))
-                .collect(Collectors.toList());
-        Set<Integer> testNumbers = new HashSet<>(myNumbers);
-        assertTrue(gamblingMachine.howManyWins(testNumbers) <= 7 && gamblingMachine.howManyWins(testNumbers) >= 0);
+                .collect(Collectors.toSet());
+        assertTrue(gamblingMachine.howManyWins(myNumbers) <= 7 && gamblingMachine.howManyWins(myNumbers) >= 0);
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/invalidNumbers.csv")
+    @CsvFileSource(resources = "/invalidNumbers.csv", delimiterString = ";")
     public void testHowManyWins_withException(String numbers) {
         String[] stringNumbers = numbers.split(",");
         Set<String> numbersSet = new HashSet<>(Arrays.asList(stringNumbers));
-        List<Integer> myNumbers = numbersSet
+        Set<Integer> myNumbers = numbersSet
                 .stream()
                 .map(u -> Integer.parseInt(u))
-                .collect(Collectors.toList());
-        Set<Integer> testNumbers = new HashSet<>(myNumbers);
-        Assertions.assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(testNumbers));
+                .collect(Collectors.toSet());
+        Assertions.assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(myNumbers));
     }
 }
