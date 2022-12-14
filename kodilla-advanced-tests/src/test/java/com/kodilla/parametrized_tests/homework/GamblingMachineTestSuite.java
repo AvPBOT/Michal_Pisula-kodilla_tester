@@ -6,7 +6,6 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class GamblingMachineTestSuite {
@@ -24,16 +23,7 @@ class GamblingMachineTestSuite {
     @ParameterizedTest
     @CsvFileSource(resources = "/invalidNumbers.csv")
     public void testHowManyWins_withException(String numbers) {
-        String[] myStringNumbers = numbers.split(",");
-        Set<Integer> expectedSet = new HashSet<>();
-        for (int i = 0; i < myStringNumbers.length; i++) {
-            Integer a = Integer.parseInt(myStringNumbers[i]);
-            expectedSet.add(a);
-        }
-        Exception exception = assertThrows(InvalidNumbersException.class, () -> {
-            gamblingMachine.howManyWins(expectedSet);
-        }
-        );
-        assertEquals("Wrong numbers provided", exception.getMessage());
+        Set<Integer> numbersSet = parseInputNumbers(numbers);
+        assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(numbersSet));
     }
 }
