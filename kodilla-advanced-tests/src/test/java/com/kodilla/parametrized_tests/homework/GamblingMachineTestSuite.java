@@ -23,7 +23,7 @@ class GamblingMachineTestSuite {
                 .stream()
                 .map(u -> Integer.parseInt(u))
                 .collect(Collectors.toSet());
-        assertTrue(gamblingMachine.howManyWins(myNumbers) <= 7 && gamblingMachine.howManyWins(myNumbers) >= 0);
+        assertTrue(gamblingMachine.howManyWins(myNumbers) <= 6 && gamblingMachine.howManyWins(myNumbers) >= 0);
     }
 
     @ParameterizedTest
