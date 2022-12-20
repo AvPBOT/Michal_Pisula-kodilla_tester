@@ -9,14 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class CashMachineTest {
 
     private CashMachine testeeCashMachine;
-    private CashMachine testeeCashMachineNoWithdrawals;
-    private CashMachine testeeCashMachineNoDeposits;
+    private CashMachine testeeCashMachineNoTransactions;
 
     @BeforeEach
     public void initCashMachines() {
         testeeCashMachine = new CashMachine(new int[]{400, -200, 0, 500, 700, -800});
-        testeeCashMachineNoWithdrawals = new CashMachine(new int[]{400, 0, 500, 700});
-        testeeCashMachineNoDeposits = new CashMachine(new int[]{0, -200, -800});
+        testeeCashMachineNoTransactions = new CashMachine(new int[]{});
     }
 
     @Test
@@ -41,7 +39,7 @@ class CashMachineTest {
 
     @Test
     public void shouldCalculateTheAverageDepositButThereAreNoDeposits() {
-        assertEquals(NaN, testeeCashMachineNoDeposits.getAverageDeposit());
+        assertEquals(NaN, testeeCashMachineNoTransactions.getAverageDeposit());
     }
 
     @Test
@@ -51,6 +49,6 @@ class CashMachineTest {
 
     @Test
     public void shouldCalculateTheAverageWithdrawalButThereAreNoWithdrawals() {
-        assertEquals(NaN, testeeCashMachineNoWithdrawals.getAverageWithdrawal());
+        assertEquals(NaN, testeeCashMachineNoTransactions.getAverageWithdrawal());
     }
 }

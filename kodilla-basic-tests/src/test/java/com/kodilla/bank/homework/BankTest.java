@@ -9,18 +9,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class BankTest {
 
     private Bank testeeBank;
-    private Bank testeeBankNoWithdrawals;
-    private Bank testeeBankNoDeposits;
+    private Bank testeeBankNoTransactions;
 
     CashMachine testeeCashMachine = new CashMachine(new int[]{400, 600, 0, -200, -300, -500, 0, 500, 100, -400, 900, 200, 0, -600, -700});
-    CashMachine testeeCashMachineNoWithdrawals = new CashMachine(new int[]{400, 600, 0, 0, 500, 100, 900, 200, 0});
-    CashMachine testeeCashMachineNoDeposits = new CashMachine(new int[]{0, -200, -300, -500, 0, -400, 0, -600, -700});
+    CashMachine testeeCashMachineNoTransactions = new CashMachine(new int[]{});
 
     @BeforeEach
     public void initBanks() {
         testeeBank = new Bank(new CashMachine[]{testeeCashMachine});
-        testeeBankNoWithdrawals = new Bank(new CashMachine[]{testeeCashMachineNoWithdrawals});
-        testeeBankNoDeposits = new Bank(new CashMachine[]{testeeCashMachineNoDeposits});
+        testeeBankNoTransactions = new Bank(new CashMachine[]{testeeCashMachineNoTransactions});
     }
 
     @Test
@@ -40,7 +37,7 @@ public class BankTest {
 
     @Test
     public void shouldCalculateAverageWithdrawalButThereAreNoWithdrawals () {
-        assertEquals(NaN, testeeBankNoWithdrawals.getTotalAverageWithdrawal());
+        assertEquals(NaN, testeeBankNoTransactions.getTotalAverageWithdrawal());
     }
 
     @Test
@@ -55,6 +52,6 @@ public class BankTest {
 
     @Test
     public void shouldCalculateAverageDepositButThereAreNoDeposits () {
-        assertEquals(NaN, testeeBankNoDeposits.getTotalAverageDeposit());
+        assertEquals(NaN, testeeBankNoTransactions.getTotalAverageDeposit());
     }
 }
