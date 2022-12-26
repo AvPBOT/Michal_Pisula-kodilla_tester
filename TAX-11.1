@@ -1,0 +1,36 @@
+<veh:car xmlns:veh="http://www.kodilla.com"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-insatnce"
+         xsi:schemaLocation="http://www.kodilla.com vehicle.xsd>
+    <veh:name>Lexus NX</veh:name>
+    <veh:productionYear>2020</veh:productionYear>
+    <veh:mileage>39470</veh:mileage>
+    <veh:power>154</veh:power> 
+    <veh:fuelType>Hybrid</veh:fuelType>
+    <veh:engineCapacity>2494</veh:engineCapacity>
+    <veh:bodyExterior>SUV</veh:bodyExterior>
+    <veh:transmission>Automatic</veh:transmission>
+</veh:car>
+
+
+<?xml version="1.0"?>
+<xs:schema xlmns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.kodilla.com"
+           xmlns="http://www.kodilla.com"
+           elementFormDefault="qualified">
+           
+<xs:element name="car">
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="name" type="xs:string"/>
+    <xs:element name="productionYear" type="xs:integer"/>
+    <xs:element name="mileage" type="xs:integer"/>
+    <xs:element name="power" type="xs:integer"/>
+    <xs:element name="fuelType" type="xs:string"/>
+    <xs:element name="engineCapacity" type="xs:integer"/>
+    <xs:element name="bodyExterior" type="xs:string"/>
+    <xs:element name="transmission" type="xs:string"/>
+   </xs:sequence> 
+  </xs:complexType>  
+ </xs:element>  
+ 
+</xs:schema> 
