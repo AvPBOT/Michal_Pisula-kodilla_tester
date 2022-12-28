@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Random;
 
 @Configuration
-public class ConfigurationClass {
+public class CarSelection {
 
     @Bean
     public Car selectCar() {
