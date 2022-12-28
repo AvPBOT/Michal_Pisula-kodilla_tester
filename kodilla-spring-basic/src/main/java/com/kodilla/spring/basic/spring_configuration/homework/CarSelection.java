@@ -9,7 +9,7 @@ import java.util.Random;
 public class CarSelection {
 
     @Bean
-    public Car selectCar() {
+    public static Car selectCar() {
         Random random = new Random();
         int month = random.nextInt((12) + 1);
         int hour = random.nextInt((24) + 1);
@@ -23,6 +23,10 @@ public class CarSelection {
             car = new Sedan(hour < 6 || hour >= 20);
         }
         return car;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Car type: " + selectCar().getCarType() + "; with lights on: " + selectCar().hasHeadlightsTurnedOn());
     }
 }
 
