@@ -1,7 +1,7 @@
 <veh:car xmlns:veh="http://www.kodilla.com"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-insatnce"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.kodilla.com vehicle.xsd>
-    <veh:name>Lexus NX</veh:name>
+    <veh:name>LexusNX</veh:name>
     <veh:productionYear>2020</veh:productionYear>
     <veh:mileage>39470</veh:mileage>
     <veh:power>155</veh:power>
