@@ -5,8 +5,7 @@ import org.junit.jupiter.api.*;
 import java.time.LocalDate;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ShopTestSuite {
     Shop shop = new Shop();
@@ -57,13 +56,23 @@ class ShopTestSuite {
     }
 
     @Test
+    public void shouldReturnNullIfNoOrderInGivenRangeOfDates() {
+        assertNull(shop.getOrdersFromARangeOfDates(LocalDate.of(1990, 1, 1), LocalDate.of(1991, 3, 3)));
+    }
+
+    @Test
     public void testGetOrderFromARangeOfValues() {
         //when
-        Set<Order> result = shop.getOrderFromRangeOfValues(100,120);
+        Set<Order> result = shop.getOrderFromRangeOfValues(100, 120);
 
         //then
         assertEquals(3, result.size());
         assertTrue(result.contains(order1) && result.contains(order2) && result.contains(order3));
+    }
+
+    @Test
+    public void shouldReturnNullIfNoOrderInGivenRangeOfValues() {
+        assertNull(shop.getOrderFromRangeOfValues(70, 90));
     }
 
     @Test
@@ -78,9 +87,9 @@ class ShopTestSuite {
     @Test
     public void shouldCalculateValueOfAllOrders() {
         //when
-        double sum = shop.calculateValueOfAllOrders();
+        double value = shop.calculateValueOfAllOrders();
 
         //then
-        assertEquals(330, sum);
+        assertEquals(330, value);
     }
 }
