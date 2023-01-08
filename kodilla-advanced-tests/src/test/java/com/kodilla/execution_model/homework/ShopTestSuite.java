@@ -2,15 +2,18 @@ package com.kodilla.execution_model.homework;
 
 import org.junit.jupiter.api.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ShopTestSuite {
     Shop shop = new Shop();
 
-    Order order1 = new Order(124, Date(int year, int month, int date), "customer1"); // wartość zamówienia, datę oraz login osoby dokonującej zamówienia
-    Order order2 = new Order(343, Date(int year, int month, int date), "customer2");
-    Order order3 = new Order(893, Date(int year, int month, int date), "customer3"); // itd.
+    Order order1 = new Order(100.00, LocalDate.of(2022,1, 1), "test1");
+    Order order2 = new Order(110.00, LocalDate.of(2022,2, 2), "test2");
+    Order order3 = new Order(120.00, LocalDate.of(2022,3, 3), "test3");
 
     @BeforeAll
     public static void displayIntroMessage() {
@@ -26,7 +29,7 @@ class ShopTestSuite {
     public void initShop() {
         shop.addOrder(order1);
         shop.addOrder(order2);
-        shop.addOrder(order3); // itd.
+        shop.addOrder(order3);
     }
 
     @AfterEach
@@ -36,67 +39,48 @@ class ShopTestSuite {
 
     @Test
     public void testAddOrder() {
-        assertEquals(3, shop.getNumberOfOrders());
-    }
+        //When
+        int numberOfOrders = shop.getNumberOfOrders();
 
-    @Test
-    public void shouldNotAddOrderIfOrderValueZeroOrNegative() {
-        shop.addOrder(new Order(0, Date(int year, int month, int date), "test1");
-        shop.addOrder(new Order(-1337, Date(int year, int month, int date), "test2");
-        assertEquals(3, shop.getNumberOfOrders());
+        //Then
+        assertEquals(3, numberOfOrders);
     }
 
     @Test
     public void testGetOrderFromARangeOfDates() {
         //when
-        Set<Order> result = shop.getOrderFromARangeOfDates();
+        Set<Order> result = shop.getOrdersFromARangeOfDates(LocalDate.of(2022, 1, 1), LocalDate.of(2022, 3, 3));
+
         // then
-        assertEquals(?, result.size());
-        assertTrue(result.contains(order1) && ...);
-    }
-
-    @Test
-    public void shouldReturnNullIfNoOrderInGivenDateRangeInGetOrderFromARangeOfDates() {
-        assertNull(shop.getOrderFromARangeOfDates());
-    }
-
-    @Test
-    public void shouldReturnNullIfDateFromGreaterThanDateToInGetOrderFromARangeOfDates() {
-        assertNull(shop.getOrderFromARangeOfDates());
+        assertEquals(3, result.size());
+        assertTrue(result.contains(order1) && result.contains(order2) && result.contains(order3));
     }
 
     @Test
     public void testGetOrderFromARangeOfValues() {
         //when
-        Set<Order> result = shop.getOrderFromARangeOfValues(??,???);
+        Set<Order> result = shop.getOrderFromRangeOfValues(100,120);
+
         //then
-        assertEquals(?, result.size());
-        assertTrue(result.contains() && ...);
-    }
-
-    @Test
-    public void shouldReturnNullIfNoOrderInGivenValuesRangeInGetOrderFromARangeOfValues() {
-        assertNull(shop.getOrderFromARangeOfValues());
-    }
-
-    @Test
-    public void shouldReturnNullIfMinGreaterThanMaxInGetOrderFromARangeOfValues() {
-        assertNull(shop.getOrderFromARangeOfValues(??,?));
+        assertEquals(3, result.size());
+        assertTrue(result.contains(order1) && result.contains(order2) && result.contains(order3));
     }
 
     @Test
     public void testGetNumberOfOrders() {
         //when
         int result = shop.getNumberOfOrders();
+
         //then
-        assertEquals(?, result);
+        assertEquals(3, result);
     }
 
     @Test
-    public void testCalculateTotalValueOfAllOrders() {
+    public void shouldCalculateValueOfAllOrders() {
         //when
-        double sum = shop.getTotalValueOfAllOrders();
+        double sum = shop.calculateValueOfAllOrders();
+
         //then
-        assertEquals(?, sum);
+        assertEquals(330, sum);
     }
 }
