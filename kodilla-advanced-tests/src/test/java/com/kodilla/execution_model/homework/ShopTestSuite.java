@@ -52,7 +52,7 @@ class ShopTestSuite {
     }
 
     @Test
-    public void testGetOrderFromARangeOfDates() {
+    public void testGetOrdersFromARangeOfDates() {
         //when
         Set<Order> result = shop.getOrdersFromARangeOfDates(LocalDate.of(2022, 1, 1), LocalDate.of(2022, 3, 3));
 
@@ -62,12 +62,12 @@ class ShopTestSuite {
     }
 
     @Test
-    public void shouldReturnNullIfNoOrderInGivenRangeOfDates() {
+    public void shouldReturnNullIfNoOrdersInGivenRangeOfDates() {
         assertNull(shop.getOrdersFromARangeOfDates(LocalDate.of(1990, 1, 1), LocalDate.of(1991, 3, 3)));
     }
 
     @Test
-    public void testGetOrderFromARangeOfValues() {
+    public void testGetOrdersFromARangeOfValues() {
         //when
         Set<Order> result = shop.getOrderFromRangeOfValues(100, 120);
 
@@ -77,7 +77,7 @@ class ShopTestSuite {
     }
 
     @Test
-    public void shouldReturnNullIfNoOrderInGivenRangeOfValues() {
+    public void shouldReturnNullIfNoOrdersInGivenRangeOfValues() {
         assertNull(shop.getOrderFromRangeOfValues(70, 90));
     }
 
