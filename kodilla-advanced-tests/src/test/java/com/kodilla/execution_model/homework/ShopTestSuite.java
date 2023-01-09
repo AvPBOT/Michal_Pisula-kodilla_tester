@@ -13,6 +13,9 @@ class ShopTestSuite {
     Order order1 = new Order(100.00, LocalDate.of(2022,1, 1), "test1");
     Order order2 = new Order(110.00, LocalDate.of(2022,2, 2), "test2");
     Order order3 = new Order(120.00, LocalDate.of(2022,3, 3), "test3");
+    Order order4 = new Order(130.00, LocalDate.of(2022,4, 4), "test4");
+    Order order5 = new Order(140.00, LocalDate.of(2022,5, 5), "test5");
+    Order order6 = new Order(150.00, LocalDate.of(2022,6, 6), "test6");
 
     @BeforeAll
     public static void displayIntroMessage() {
@@ -29,6 +32,9 @@ class ShopTestSuite {
         shop.addOrder(order1);
         shop.addOrder(order2);
         shop.addOrder(order3);
+        shop.addOrder(order4);
+        shop.addOrder(order5);
+        shop.addOrder(order6);
     }
 
     @AfterEach
@@ -42,7 +48,7 @@ class ShopTestSuite {
         int numberOfOrders = shop.getNumberOfOrders();
 
         //Then
-        assertEquals(3, numberOfOrders);
+        assertEquals(6, numberOfOrders);
     }
 
     @Test
@@ -81,7 +87,7 @@ class ShopTestSuite {
         int result = shop.getNumberOfOrders();
 
         //then
-        assertEquals(3, result);
+        assertEquals(6, result);
     }
 
     @Test
@@ -90,6 +96,6 @@ class ShopTestSuite {
         double value = shop.calculateValueOfAllOrders();
 
         //then
-        assertEquals(330, value);
+        assertEquals(750, value);
     }
 }
