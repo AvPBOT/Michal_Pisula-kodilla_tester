@@ -7,7 +7,6 @@ import java.time.LocalTime;
 
 @Configuration
 public class CarSelection {
-    static ClockSeason clockSeason = new ClockSeason();
     static Car car;
 
     @Bean
