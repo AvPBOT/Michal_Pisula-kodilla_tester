@@ -3,6 +3,7 @@ package com.kodilla.spring.basic.spring_configuration.homework;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -15,8 +16,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @SpringBootTest
 class CarSelectionTestSuite {
 
-    ClockSeason clockSeason = Mockito.mock(ClockSeason.class);
-
+    @MockBean
+    ClockSeason clockSeason;
 
     @Test
     public void shouldSelectCabrioWithLightsOff6AM() {
