@@ -17,14 +17,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class CarSelectionTestSuite {
 
     @MockBean
-    ClockSeason mockClockSeason = Mockito.mock(ClockSeason.class);
+    ClockSeason clockSeason;
 
     @Test
     public void shouldSelectCabrioWithLightsOff6AM() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Mockito.when(mockClockSeason.getSeason()).thenReturn(SUMMER);
-        Mockito.when(mockClockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
+        Mockito.when(clockSeason.getSeason()).thenReturn(SUMMER);
+        Mockito.when(clockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
         Car car = (Car) context.getBean("selectCar");
 
         //Then
@@ -36,8 +36,8 @@ class CarSelectionTestSuite {
     public void shouldReturnCabrioWithLightsOn8PM() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Mockito.when(mockClockSeason.getSeason()).thenReturn(SUMMER);
-        Mockito.when(mockClockSeason.getTime()).thenReturn(LocalTime.of(20, 0));
+        Mockito.when(clockSeason.getSeason()).thenReturn(SUMMER);
+        Mockito.when(clockSeason.getTime()).thenReturn(LocalTime.of(20, 0));
         Car car = (Car) context.getBean("selectCar");
 
         //Then
@@ -49,8 +49,8 @@ class CarSelectionTestSuite {
     public void shouldReturnSUVWithLightsOff6AM() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Mockito.when(mockClockSeason.getSeason()).thenReturn(WINTER);
-        Mockito.when(mockClockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
+        Mockito.when(clockSeason.getSeason()).thenReturn(WINTER);
+        Mockito.when(clockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
         Car car = (Car) context.getBean("selectCar");
 
         //Then
@@ -62,8 +62,8 @@ class CarSelectionTestSuite {
     public void shouldReturnSUVWithLightsOn8PM() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Mockito.when(mockClockSeason.getSeason()).thenReturn(WINTER);
-        Mockito.when(mockClockSeason.getTime()).thenReturn(LocalTime.of(20, 0));
+        Mockito.when(clockSeason.getSeason()).thenReturn(WINTER);
+        Mockito.when(clockSeason.getTime()).thenReturn(LocalTime.of(20, 0));
         Car car = (Car) context.getBean("selectCar");
 
         //Then
@@ -75,8 +75,8 @@ class CarSelectionTestSuite {
     public void shouldReturnSedanSpringWithLightsOff6AM() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Mockito.when(mockClockSeason.getSeason()).thenReturn(SPRING);
-        Mockito.when(mockClockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
+        Mockito.when(clockSeason.getSeason()).thenReturn(SPRING);
+        Mockito.when(clockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
         Car car = (Car) context.getBean("selectCar");
 
         //Then
@@ -88,8 +88,8 @@ class CarSelectionTestSuite {
     public void shouldReturnSedanSpringWithLightsOn8PM() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Mockito.when(mockClockSeason.getSeason()).thenReturn(SPRING);
-        Mockito.when(mockClockSeason.getTime()).thenReturn(LocalTime.of(20, 0));
+        Mockito.when(clockSeason.getSeason()).thenReturn(SPRING);
+        Mockito.when(clockSeason.getTime()).thenReturn(LocalTime.of(20, 0));
         Car car = (Car) context.getBean("selectCar");
 
         //Then
@@ -101,8 +101,8 @@ class CarSelectionTestSuite {
     public void shouldReturnSedanAutumnWithLightsOff6AM() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Mockito.when(mockClockSeason.getSeason()).thenReturn(AUTUMN);
-        Mockito.when(mockClockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
+        Mockito.when(clockSeason.getSeason()).thenReturn(AUTUMN);
+        Mockito.when(clockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
         Car car = (Car) context.getBean("selectCar");
 
         //Then
@@ -114,8 +114,8 @@ class CarSelectionTestSuite {
     public void shouldReturnSedanAutumnWithLightsOn8PM() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Mockito.when(mockClockSeason.getSeason()).thenReturn(AUTUMN);
-        Mockito.when(mockClockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
+        Mockito.when(clockSeason.getSeason()).thenReturn(AUTUMN);
+        Mockito.when(clockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
         Car car = (Car) context.getBean("selectCar");
 
         //Then
