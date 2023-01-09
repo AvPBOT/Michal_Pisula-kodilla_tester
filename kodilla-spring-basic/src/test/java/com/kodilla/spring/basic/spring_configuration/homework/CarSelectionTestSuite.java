@@ -1,38 +1,124 @@
 package com.kodilla.spring.basic.spring_configuration.homework;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.util.Arrays;
-import java.util.List;
+import java.time.LocalTime;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static com.kodilla.spring.basic.spring_configuration.homework.Season.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 class CarSelectionTestSuite {
 
+    ClockSeason clockSeason = Mockito.mock(ClockSeason.class);
+
+
     @Test
-    public void shouldSelectCarType() {
+    public void shouldSelectCabrioWithLightsOff6AM() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Mockito.when(clockSeason.getSeason()).thenReturn(SUMMER);
+        Mockito.when(clockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
         Car car = (Car) context.getBean("selectCar");
-        //When
-        String carType = car.getCarType();
+
         //Then
-        List<String> possibleTypes = Arrays.asList("SUV", "Cabrio", "Sedan");
-        assertTrue(possibleTypes.contains(carType));
+        assertTrue(car instanceof Cabrio);
+        assertFalse(car.hasHeadlightsTurnedOn());
     }
 
     @Test
-    public void shouldSelectCarWithLightsTurnedOnOrOff() {
+    public void shouldReturnCabrioWithLightsOn8PM() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Mockito.when(clockSeason.getSeason()).thenReturn(SUMMER);
+        Mockito.when(clockSeason.getTime()).thenReturn(LocalTime.of(20, 0));
         Car car = (Car) context.getBean("selectCar");
-        //When
-        boolean carLights = car.hasHeadlightsTurnedOn();
+
         //Then
-        assertTrue((carLights = true) || (carLights = false));
+        assertTrue(car instanceof Cabrio);
+        assertTrue(car.hasHeadlightsTurnedOn());
+    }
+
+    @Test
+    public void shouldReturnSUVWithLightsOff6AM() {
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Mockito.when(clockSeason.getSeason()).thenReturn(WINTER);
+        Mockito.when(clockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
+        Car car = (Car) context.getBean("selectCar");
+
+        //Then
+        assertTrue(car instanceof SUV);
+        assertFalse(car.hasHeadlightsTurnedOn());
+    }
+
+    @Test
+    public void shouldReturnSUVWithLightsOn8PM() {
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Mockito.when(clockSeason.getSeason()).thenReturn(WINTER);
+        Mockito.when(clockSeason.getTime()).thenReturn(LocalTime.of(20, 0));
+        Car car = (Car) context.getBean("selectCar");
+
+        //Then
+        assertTrue(car instanceof SUV);
+        assertTrue(car.hasHeadlightsTurnedOn());
+    }
+
+    @Test
+    public void shouldReturnSedanSpringWithLightsOff6AM() {
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Mockito.when(clockSeason.getSeason()).thenReturn(SPRING);
+        Mockito.when(clockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
+        Car car = (Car) context.getBean("selectCar");
+
+        //Then
+        assertTrue(car instanceof Sedan);
+        assertFalse(car.hasHeadlightsTurnedOn());
+    }
+
+    @Test
+    public void shouldReturnSedanSpringWithLightsOn8PM() {
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Mockito.when(clockSeason.getSeason()).thenReturn(SPRING);
+        Mockito.when(clockSeason.getTime()).thenReturn(LocalTime.of(20, 0));
+        Car car = (Car) context.getBean("selectCar");
+
+        //Then
+        assertTrue(car instanceof Sedan);
+        assertTrue(car.hasHeadlightsTurnedOn());
+    }
+
+    @Test
+    public void shouldReturnSedanAutumnWithLightsOff6AM() {
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Mockito.when(clockSeason.getSeason()).thenReturn(AUTUMN);
+        Mockito.when(clockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
+        Car car = (Car) context.getBean("selectCar");
+
+        //Then
+        assertTrue(car instanceof Sedan);
+        assertFalse(car.hasHeadlightsTurnedOn());
+    }
+
+    @Test
+    public void shouldReturnSedanAutumnWithLightsOn8PM() {
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Mockito.when(clockSeason.getSeason()).thenReturn(AUTUMN);
+        Mockito.when(clockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
+        Car car = (Car) context.getBean("selectCar");
+
+        //Then
+        assertTrue(car instanceof Sedan);
+        assertTrue(car.hasHeadlightsTurnedOn());
     }
 }
