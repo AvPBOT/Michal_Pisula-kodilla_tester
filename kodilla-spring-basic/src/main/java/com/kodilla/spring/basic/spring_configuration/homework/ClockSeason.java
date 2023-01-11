@@ -6,10 +6,9 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class ClockSeason {
-    private static Season season;
+    private Season season;
 
-    @Bean
-    static Season getSeason() {
+    public Season getSeason() {
         switch (LocalDate.now().getMonthValue()) {
             case 12:
             case 1:
@@ -32,7 +31,7 @@ public class ClockSeason {
     }
 
     @Bean
-    static LocalTime getTime() {
+    public LocalTime getTime() {
         return LocalTime.now();
     }
 }

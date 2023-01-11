@@ -2,9 +2,6 @@ package com.kodilla.spring.basic.spring_configuration.homework;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.time.LocalTime;
 
@@ -12,10 +9,9 @@ import static com.kodilla.spring.basic.spring_configuration.homework.Season.*;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SpringBootTest
 class CarSelectionTestSuite {
 
-    ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+    CarSelection carSelection = new CarSelection();
     ClockSeason mockClockSeason = Mockito.mock(ClockSeason.class);
 
     @Test
@@ -23,11 +19,11 @@ class CarSelectionTestSuite {
         //Given
         Mockito.when(mockClockSeason.getSeason()).thenReturn(SUMMER);
         Mockito.when(mockClockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
-        Car car = (Car) context.getBean("selectCar");
+        carSelection.selectCar(mockClockSeason);
 
         //Then
-        assertTrue(car instanceof Cabrio);
-        assertFalse(car.hasHeadlightsTurnedOn());
+        assertTrue(carSelection.selectCar(mockClockSeason) instanceof Cabrio);
+        assertFalse(carSelection.selectCar(mockClockSeason).hasHeadlightsTurnedOn());
     }
 
     @Test
@@ -35,11 +31,11 @@ class CarSelectionTestSuite {
         //Given
         Mockito.when(mockClockSeason.getSeason()).thenReturn(SUMMER);
         Mockito.when(mockClockSeason.getTime()).thenReturn(LocalTime.of(20, 0));
-        Car car = (Car) context.getBean("selectCar");
+        carSelection.selectCar(mockClockSeason);
 
         //Then
-        assertTrue(car instanceof Cabrio);
-        assertTrue(car.hasHeadlightsTurnedOn());
+        assertTrue(carSelection.selectCar(mockClockSeason) instanceof Cabrio);
+        assertTrue(carSelection.selectCar(mockClockSeason).hasHeadlightsTurnedOn());
     }
 
     @Test
@@ -47,11 +43,11 @@ class CarSelectionTestSuite {
         //Given
         Mockito.when(mockClockSeason.getSeason()).thenReturn(WINTER);
         Mockito.when(mockClockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
-        Car car = (Car) context.getBean("selectCar");
+        carSelection.selectCar(mockClockSeason);
 
         //Then
-        assertTrue(car instanceof SUV);
-        assertFalse(car.hasHeadlightsTurnedOn());
+        assertTrue(carSelection.selectCar(mockClockSeason) instanceof SUV);
+        assertFalse(carSelection.selectCar(mockClockSeason).hasHeadlightsTurnedOn());
     }
 
     @Test
@@ -59,11 +55,11 @@ class CarSelectionTestSuite {
         //Given
         Mockito.when(mockClockSeason.getSeason()).thenReturn(WINTER);
         Mockito.when(mockClockSeason.getTime()).thenReturn(LocalTime.of(20, 0));
-        Car car = (Car) context.getBean("selectCar");
+        carSelection.selectCar(mockClockSeason);
 
         //Then
-        assertTrue(car instanceof SUV);
-        assertTrue(car.hasHeadlightsTurnedOn());
+        assertTrue(carSelection.selectCar(mockClockSeason) instanceof SUV);
+        assertTrue(carSelection.selectCar(mockClockSeason).hasHeadlightsTurnedOn());
     }
 
     @Test
@@ -71,11 +67,11 @@ class CarSelectionTestSuite {
         //Given
         Mockito.when(mockClockSeason.getSeason()).thenReturn(SPRING);
         Mockito.when(mockClockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
-        Car car = (Car) context.getBean("selectCar");
+        carSelection.selectCar(mockClockSeason);
 
         //Then
-        assertTrue(car instanceof Sedan);
-        assertFalse(car.hasHeadlightsTurnedOn());
+        assertTrue(carSelection.selectCar(mockClockSeason) instanceof Sedan);
+        assertFalse(carSelection.selectCar(mockClockSeason).hasHeadlightsTurnedOn());
     }
 
     @Test
@@ -83,11 +79,11 @@ class CarSelectionTestSuite {
         //Given
         Mockito.when(mockClockSeason.getSeason()).thenReturn(SPRING);
         Mockito.when(mockClockSeason.getTime()).thenReturn(LocalTime.of(20, 0));
-        Car car = (Car) context.getBean("selectCar");
+        carSelection.selectCar(mockClockSeason);
 
         //Then
-        assertTrue(car instanceof Sedan);
-        assertTrue(car.hasHeadlightsTurnedOn());
+        assertTrue(carSelection.selectCar(mockClockSeason) instanceof Sedan);
+        assertTrue(carSelection.selectCar(mockClockSeason).hasHeadlightsTurnedOn());
     }
 
     @Test
@@ -95,22 +91,22 @@ class CarSelectionTestSuite {
         //Given
         Mockito.when(mockClockSeason.getSeason()).thenReturn(AUTUMN);
         Mockito.when(mockClockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
-        Car car = (Car) context.getBean("selectCar");
+        carSelection.selectCar(mockClockSeason);
 
         //Then
-        assertTrue(car instanceof Sedan);
-        assertFalse(car.hasHeadlightsTurnedOn());
+        assertTrue(carSelection.selectCar(mockClockSeason) instanceof Sedan);
+        assertFalse(carSelection.selectCar(mockClockSeason).hasHeadlightsTurnedOn());
     }
 
     @Test
     public void shouldReturnSedanAutumnWithLightsOn8PM() {
         //Given
         Mockito.when(mockClockSeason.getSeason()).thenReturn(AUTUMN);
-        Mockito.when(mockClockSeason.getTime()).thenReturn(LocalTime.of(6, 0));
-        Car car = (Car) context.getBean("selectCar");
+        Mockito.when(mockClockSeason.getTime()).thenReturn(LocalTime.of(20, 0));
+        carSelection.selectCar(mockClockSeason);
 
         //Then
-        assertTrue(car instanceof Sedan);
-        assertTrue(car.hasHeadlightsTurnedOn());
+        assertTrue(carSelection.selectCar(mockClockSeason) instanceof Sedan);
+        assertTrue(carSelection.selectCar(mockClockSeason).hasHeadlightsTurnedOn());
     }
 }
