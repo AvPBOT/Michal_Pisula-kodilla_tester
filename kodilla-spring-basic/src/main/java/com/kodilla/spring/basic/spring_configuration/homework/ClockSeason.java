@@ -1,7 +1,5 @@
 package com.kodilla.spring.basic.spring_configuration.homework;
 
-import org.springframework.context.annotation.Bean;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -30,7 +28,6 @@ public class ClockSeason {
         return season;
     }
 
-    @Bean
     public LocalTime getTime() {
         return LocalTime.now();
     }
