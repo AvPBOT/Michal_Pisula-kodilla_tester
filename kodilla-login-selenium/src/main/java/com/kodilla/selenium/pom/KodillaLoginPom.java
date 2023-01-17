@@ -28,7 +28,7 @@ public class KodillaLoginPom extends AbstractPom {
         passwordField.sendKeys(password);
         loginButton.click();
         Alert alert = driver.switchTo().alert();
-        String message = alert.getText();
+        String message = alert.getText();//
         alert.dismiss();
         return message.equals("Jesteś teraz zalogowany!");
     }
