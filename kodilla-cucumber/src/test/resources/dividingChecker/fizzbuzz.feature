@@ -1,7 +1,7 @@
 Feature: FizzBuzz
   Scenario Outline: Is the number divisible by 3, by 5, or by 3 and 5?
     Given number is <number>
-    When I ask if the number divisible by three, by five, or by three and five
+    When I ask if the number is divisible by three, by five, or by three and five
     Then I should be given <response>
     Examples:
       | number | response |
