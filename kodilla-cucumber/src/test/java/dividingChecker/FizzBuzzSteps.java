@@ -1,211 +1,100 @@
 package dividingChecker;
 
 import io.cucumber.java8.En;
+import org.junit.Assert;
 
 public class FizzBuzzSteps implements En {
     private int number;
     private String response;
 
     public FizzBuzzSteps() {
-
-        Then("I should be given {string}", (String string) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+        Given("number is One", () -> {
+            this.number = 1;
         });
 
-        Given("number is {int}", (Integer int1) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+        Given("number is Three", () -> {
+            this.number = 3;
         });
 
-        When("I ask if the number divisible by three, by five, or by three and five", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+        Given("number is Five", () -> {
+            this.number = 5;
         });
 
-        Then("I should be given {string}", (String string) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+        Given("number is Six", () -> {
+            this.number = 6;
         });
 
-        Given("number is {int}", (Integer int1) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+        Given("number is Eight", () -> {
+            this.number = 8;
         });
 
-        When("I ask if the number divisible by three, by five, or by three and five", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+        Given("number is Nine", () -> {
+            this.number = 9;
         });
 
-        Then("I should be given {string}", (String string) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+        Given("number is Ten", () -> {
+            this.number = 10;
         });
 
-        Given("number is {int}", (Integer int1) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+        Given("number is Twelve", () -> {
+            this.number = 12;
         });
 
-        When("I ask if the number divisible by three, by five, or by three and five", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+        Given("number is Fifteen", () -> {
+            this.number = 15;
         });
 
-        Then("I should be given {string}", (String string) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+        Given("number is Eighteen", () -> {
+            this.number = 18;
         });
 
-        Given("number is {int}", (Integer int1) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+        Given("number is Twenty", () -> {
+            this.number = 20;
         });
 
-        When("I ask if the number divisible by three, by five, or by three and five", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+        Given("number is TwentyOne", () -> {
+            this.number = 21;
         });
 
-        Then("I should be given {string}", (String string) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+        Given("number is TwentyFour", () -> {
+            this.number = 24;
         });
 
-        Given("number is {int}", (Integer int1) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+        Given("number is TwentyFive", () -> {
+            this.number = 25;
         });
 
-        When("I ask if the number divisible by three, by five, or by three and five", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+        Given("number is TwentySeven", () -> {
+            this.number = 27;
         });
 
-        Then("I should be given {string}", (String string) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+        Given("number is Thirty", () -> {
+            this.number = 30;
         });
 
-        Given("number is {int}", (Integer int1) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+        Given("number is ThirtyTwo", () -> {
+            this.number = 32;
+        });
+
+        Given("number is ThirtyThree", () -> {
+            this.number = 33;
+        });
+
+        Given("number is ThirtyFive", () -> {
+            this.number = 35;
+        });
+
+        Given("number is ThirtySix", () -> {
+            this.number = 36;
         });
 
         When("I ask if the number divisible by three, by five, or by three and five", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+            DividingChecker dividingChecker = new DividingChecker();
+            this.response = dividingChecker.fizzBuzz(this.number);
         });
 
         Then("I should be given {string}", (String string) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        Given("number is {int}", (Integer int1) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        When("I ask if the number divisible by three, by five, or by three and five", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        Then("I should be given {string}", (String string) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        Given("number is {int}", (Integer int1) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        When("I ask if the number divisible by three, by five, or by three and five", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        Then("I should be given {string}", (String string) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        Given("number is {int}", (Integer int1) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        When("I ask if the number divisible by three, by five, or by three and five", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        Then("I should be given {string}", (String string) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        Given("number is {int}", (Integer int1) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        When("I ask if the number divisible by three, by five, or by three and five", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        Then("I should be given {string}", (String string) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        Given("number is {int}", (Integer int1) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        When("I ask if the number divisible by three, by five, or by three and five", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        Then("I should be given {string}", (String string) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        Given("number is {int}", (Integer int1) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        When("I ask if the number divisible by three, by five, or by three and five", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        Then("I should be given {string}", (String string) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        Given("number is {int}", (Integer int1) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        When("I ask if the number divisible by three, by five, or by three and five", () -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
-        });
-
-        Then("I should be given {string}", (String string) -> {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java8.PendingException();
+            Assert.assertEquals(string, this.response);
         });
     }
 }
