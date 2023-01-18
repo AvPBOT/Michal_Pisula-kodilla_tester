@@ -3,7 +3,7 @@ package dividingChecker;
 public class DividingChecker {
     public String fizzBuzz(int number) {
         if (number % 15 == 0) {
-            return "FizzBuzz";
+            return "Fizz Buzz";
 
         } else if (number % 3 == 0) {
             return "Fizz";
