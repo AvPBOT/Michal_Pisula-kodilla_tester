@@ -9,15 +9,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class YearTest {
     private Year testeeYearDivisibleBy4ButNot100;
     private Year testeeYearDivisibleBy400;
-    private Year testeeNotLeapYear;
+    private Year testeeNotLeapYearCenturyYear;
+    private Year testeeNotLeapYearNonCenturyYear;
 
 
     @BeforeEach
     void initYears() {
         testeeYearDivisibleBy4ButNot100 = new Year(2012);
         testeeYearDivisibleBy400 = new Year(2000);
-        testeeNotLeapYear = new Year(1900);
-
+        testeeNotLeapYearCenturyYear = new Year(1900);
+        testeeNotLeapYearNonCenturyYear = new Year(2013);
     }
 
     @Test
@@ -33,8 +34,14 @@ class YearTest {
     }
 
     @Test
-    void shouldNotBeLeapYear() {
-        boolean isLeapYear = testeeNotLeapYear.isLeap();
+    void shouldNotBeLeapYearCenturyYear() {
+        boolean isLeapYear = testeeNotLeapYearCenturyYear.isLeap();
+        assertFalse(isLeapYear);
+    }
+
+    @Test
+    void shouldNotBeLeapYearNonCenturyYear() {
+        boolean isLeapYear = testeeNotLeapYearNonCenturyYear.isLeap();
         assertFalse(isLeapYear);
     }
 }
