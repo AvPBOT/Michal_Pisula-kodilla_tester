@@ -112,21 +112,4 @@ class DbManagerTestSuite {
         rs.close();
         statement.close();
     }
-
-    private static final List<AbstractMap.SimpleEntry<Integer, String>> POSTS = List.of(
-            new AbstractMap.SimpleEntry<>(5, "Added Post 1"),
-            new AbstractMap.SimpleEntry<>(6, "Added Post 2"),
-            new AbstractMap.SimpleEntry<>(7, "Added Post 3")
-    );
-
-    private void insertPosts(Statement statement) throws SQLException {
-        for (AbstractMap.SimpleEntry<Integer, String> post : POSTS) {
-            statement.executeUpdate(
-                    String.format("INSERT INTO POSTS(USER_ID, BODY) VALUES ('%d', '%s')",
-                            post.getKey(),
-                            post.getValue()
-                    )
-            );
-        }
-    }
 }
