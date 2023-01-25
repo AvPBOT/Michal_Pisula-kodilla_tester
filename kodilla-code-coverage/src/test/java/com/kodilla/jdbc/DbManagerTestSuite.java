@@ -95,20 +95,40 @@ class DbManagerTestSuite {
     @Test
     void testSelectUsersAndPosts() throws SQLException {
         //Given
-        //When
-        DbManager dbManager = DbManager.getInstance();
         String query = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER\n" + "FROM USERS U\n" + "JOIN POSTS P ON U.ID = P.USER_ID\n" + "GROUP BY P.USER_ID\n" + "HAVING COUNT(*) >= 2";
-        Statement statement = dbManager.getConnection().createStatement();
+        Statement statement = createStatement();
         ResultSet rs = statement.executeQuery(query);
+        int count = getRowsCount(rs);
+        insertPosts(statement);
+
+        //When
+        String sqlQuery = "\"SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER\\n\" + \"FROM USERS U\\n\" + \"JOIN POSTS P ON U.ID = P.USER_ID\\n\" + \"GROUP BY P.USER_ID\\n\" + \"HAVING COUNT(*) >= 2\"";
+        statement = createStatement();
+        rs = statement.executeQuery(sqlQuery);
 
         //Then
-        int counter = 0;
-        while (rs.next()) {
-            System.out.println(rs.getString("FIRSTNAME") + ", " + rs.getString("LASTNAME"));
-            counter++;
-        }
+        int counter = getResultsCount(rs);
+        int expected = count + 3;
+        Assertions.assertEquals(expected, counter);
+
         rs.close();
         statement.close();
-        Assertions.assertEquals(1, counter);
+    }
+
+    private static final List<AbstractMap.SimpleEntry<Integer, String>> POSTS = List.of(
+            new AbstractMap.SimpleEntry<>(5, "Added Post 1"),
+            new AbstractMap.SimpleEntry<>(6, "Added Post 2"),
+            new AbstractMap.SimpleEntry<>(7, "Added Post 3")
+    );
+
+    private void insertPosts(Statement statement) throws SQLException {
+        for (AbstractMap.SimpleEntry<Integer, String> post : POSTS) {
+            statement.executeUpdate(
+                    String.format("INSERT INTO POSTS(USER_ID, BODY) VALUES ('%d', '%s')",
+                            post.getKey(),
+                            post.getValue()
+                    )
+            );
+        }
     }
 }
