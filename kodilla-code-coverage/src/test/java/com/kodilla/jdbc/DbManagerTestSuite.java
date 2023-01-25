@@ -76,4 +76,24 @@ class DbManagerTestSuite {
             statement.executeUpdate(String.format("INSERT INTO USERS(FIRSTNAME, LASTNAME) VALUES ('%s', '%s')", user.getKey(), user.getValue()));
         }
     }
+
+    @Test
+    void testSelectUsersAndPosts() throws SQLException {
+        //Given
+        //When
+        DbManager dbManager = DbManager.getInstance();
+        String query = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER\n" + "FROM USERS U\n" + "JOIN POSTS P ON U.ID = P.USER_ID\n" + "GROUP BY P.USER_ID\n" + "HAVING COUNT(*) >= 2";
+        Statement statement = dbManager.getConnection().createStatement();
+        ResultSet rs = statement.executeQuery(query);
+
+        //Then
+        int counter = 0;
+        while (rs.next()) {
+            System.out.println(rs.getString("FIRSTNAME") + ", " + rs.getString("LASTNAME"));
+            counter++;
+        }
+        rs.close();
+        statement.close();
+        Assertions.assertEquals(1, counter);
+    }
 }
