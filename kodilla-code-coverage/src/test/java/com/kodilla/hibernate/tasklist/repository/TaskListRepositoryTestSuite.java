@@ -1,12 +1,13 @@
 package com.kodilla.hibernate.tasklist.repository;
 
 import com.kodilla.hibernate.tasklist.TaskList;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class TaskListRepositoryTestSuite {
@@ -24,7 +25,7 @@ public class TaskListRepositoryTestSuite {
         List<TaskList> readTaskLists = taskListRepository.findByListName(listName);
 
         //Then
-        Assert.assertEquals(1, readTaskLists.size());
+        assertEquals(1, readTaskLists.size());
 
         //CleanUp
         int id = readTaskLists.get(0).getId();
