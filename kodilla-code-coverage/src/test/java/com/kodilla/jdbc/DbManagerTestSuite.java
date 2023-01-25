@@ -94,22 +94,20 @@ class DbManagerTestSuite {
 
     @Test
     void testSelectUsersAndPosts() throws SQLException {
-        //Given
-        String query = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER\n" + "FROM USERS U\n" + "JOIN POSTS P ON U.ID = P.USER_ID\n" + "GROUP BY P.USER_ID\n" + "HAVING COUNT(*) >= 2";
+        //given
+
+        //when
+        String sqlQuery = "SELECT U1.FIRSTNAME, U1.LASTNAME, U2.COUNT AS POSTS_NUMBER FROM USERS U1 JOIN (SELECT P.User_ID, COUNT(*) AS COUNT FROM USERS U JOIN POSTS P ON U.ID = P.USER_ID GROUP BY P.USER_ID having count(*) > 1) U2 ON U1.ID = U2.USER_ID";
         Statement statement = createStatement();
-        ResultSet rs = statement.executeQuery(query);
-        int count = getRowsCount(rs);
-        insertPosts(statement);
-
-        //When
-        String sqlQuery = "\"SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER\\n\" + \"FROM USERS U\\n\" + \"JOIN POSTS P ON U.ID = P.USER_ID\\n\" + \"GROUP BY P.USER_ID\\n\" + \"HAVING COUNT(*) >= 2\"";
-        statement = createStatement();
-        rs = statement.executeQuery(sqlQuery);
-
-        //Then
-        int counter = getResultsCount(rs);
-        int expected = count + 3;
-        Assertions.assertEquals(expected, counter);
+        ResultSet rs = statement.executeQuery(sqlQuery);
+        //then
+        int counter = 0;
+        while (rs.next()) {
+            System.out.println(rs.getString("FIRSTNAME") + ", " +
+                    rs.getString("LASTNAME"));
+            counter++;
+        }
+        Assertions.assertEquals(4, counter);
 
         rs.close();
         statement.close();
