@@ -11,29 +11,11 @@ import java.util.AbstractMap;
 import java.util.List;
 
 class DbManagerTestSuite {
-    private static final List<AbstractMap.SimpleEntry<String, String>> USERS = List.of(new AbstractMap.SimpleEntry<>("Zara", "Ali"), new AbstractMap.SimpleEntry<>("Otman", "Use"), new AbstractMap.SimpleEntry<>("Mark", "Boq"), new AbstractMap.SimpleEntry<>("Uli", "Wimer"), new AbstractMap.SimpleEntry<>("Oli", "Kosiw"));
     private static DbManager dbManager;
 
     @BeforeAll
     public static void setup() throws SQLException {
         dbManager = DbManager.getInstance();
-    }
-
-    private static int getResultsCount(ResultSet rs) throws SQLException {
-        int counter = 0;
-        while (rs.next()) {
-            System.out.printf("%d, %s, %s%n", rs.getInt("ID"), rs.getString("FIRSTNAME"), rs.getString("LASTNAME"));
-            counter++;
-        }
-        return counter;
-    }
-
-    private static int getRowsCount(ResultSet rs) throws SQLException {
-        int count = 0;
-        while (rs.next()) {
-            count = rs.getInt("COUNT(*)");
-        }
-        return count;
     }
 
     @Test
@@ -71,10 +53,43 @@ class DbManagerTestSuite {
         return dbManager.getConnection().createStatement();
     }
 
+    private static final List<AbstractMap.SimpleEntry<String, String>> USERS = List.of(
+            new AbstractMap.SimpleEntry<>("Zara", "Ali"),
+            new AbstractMap.SimpleEntry<>("Otman", "Use"),
+            new AbstractMap.SimpleEntry<>("Mark", "Boq"),
+            new AbstractMap.SimpleEntry<>("Uli", "Wimer"),
+            new AbstractMap.SimpleEntry<>("Oli", "Kosiw")
+    );
+
     private void insertUsers(Statement statement) throws SQLException {
         for (AbstractMap.SimpleEntry<String, String> user : USERS) {
-            statement.executeUpdate(String.format("INSERT INTO USERS(FIRSTNAME, LASTNAME) VALUES ('%s', '%s')", user.getKey(), user.getValue()));
+            statement.executeUpdate(
+                    String.format("INSERT INTO USERS(FIRSTNAME, LASTNAME) VALUES ('%s', '%s')",
+                            user.getKey(),
+                            user.getValue()
+                    )
+            );
         }
+    }
+
+    private static int getResultsCount(ResultSet rs) throws SQLException {
+        int counter = 0;
+        while(rs.next()) {
+            System.out.printf("%d, %s, %s%n",
+                    rs.getInt("ID"),
+                    rs.getString("FIRSTNAME"),
+                    rs.getString("LASTNAME"));
+            counter++;
+        }
+        return counter;
+    }
+
+    private static int getRowsCount(ResultSet rs) throws SQLException {
+        int count = 0;
+        while (rs.next()) {
+            count = rs.getInt("COUNT(*)");
+        }
+        return count;
     }
 
     @Test
