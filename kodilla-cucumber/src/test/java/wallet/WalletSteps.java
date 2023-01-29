@@ -15,16 +15,19 @@ public class WalletSteps {
         wallet.deposit(200);
         assertEquals(200, wallet.getBalance());
     }
-
     @When("I request $30")
     public void i_request_$30() {
         Cashier cashier = new Cashier(cashSlot);
         cashier.withdraw(wallet, 30);
     }
-
     @Then("$30 should be dispensed")
     public void $30_should_be_dispensed() {
         assertEquals(30, cashSlot.getContents());
+    }
+
+    @Then("the balance of my wallet should be $170")
+    public void the_balance_of_my_wallet_should_be_$170() {
+        assertEquals(170,  wallet.getBalance());
     }
 
     @Given("I have deposited $100 in my wallet")
@@ -44,6 +47,11 @@ public class WalletSteps {
         assertEquals(100, cashSlot.getContents());
     }
 
+    @Then("the balance of my wallet should be $0")
+    public void the_balance_of_my_wallet_should_be_$0() {
+        assertEquals(0,  wallet.getBalance());
+    }
+
     @Given("I have deposited $300 in my wallet")
     public void i_have_deposited_$300_in_my_wallet() {
         wallet.deposit(300);
@@ -59,5 +67,10 @@ public class WalletSteps {
     @Then("$400 should be dispensed")
     public void $400_should_be_dispensed() {
         assertEquals(400, cashSlot.getContents());
+    }
+
+    @Then("the balance of my wallet should be $-100")
+    public void the_balance_of_my_wallet_should_be_$Negative100() {
+        assertEquals(-100,  wallet.getBalance());
     }
 }
