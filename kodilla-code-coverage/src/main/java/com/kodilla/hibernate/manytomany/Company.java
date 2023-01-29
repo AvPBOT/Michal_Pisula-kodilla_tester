@@ -27,18 +27,10 @@ public class Company {
         return id;
     }
 
-    private void setId(int id) {
-        this.id = id;
-    }
-
     @NotNull
     @Column(name = "COMPANY_NAME")
     public String getName() {
         return name;
-    }
-
-    private void setName(String name) {
-        this.name = name;
     }
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
@@ -48,5 +40,13 @@ public class Company {
 
     public void setEmployees(List<Employee> employees) {
         this.employees = employees;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
