@@ -16,7 +16,7 @@ public class Task {
     private TaskFinancialDetails taskFinancialDetails;
     private TaskList taskList;
 
-    public Task() {
+    public Task(){
     }
 
     public Task(String description, int duration) {
@@ -24,7 +24,6 @@ public class Task {
         this.created = LocalDate.now();
         this.duration = duration;
     }
-
     @Id
     @GeneratedValue
     @NotNull
@@ -49,22 +48,6 @@ public class Task {
         return duration;
     }
 
-    private void setId(int id) {
-        this.id = id;
-    }
-
-    private void setDescription(String description) {
-        this.description = description;
-    }
-
-    private void setCreated(LocalDate created) {
-        this.created = created;
-    }
-
-    private void setDuration(int duration) {
-        this.duration = duration;
-    }
-
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "TASKS_FINANCIALS_ID")
     public TaskFinancialDetails getTaskFinancialDetails() {
@@ -83,5 +66,21 @@ public class Task {
 
     public void setTaskList(TaskList taskList) {
         this.taskList = taskList;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCreated(LocalDate created) {
+        this.created = created;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 }
