@@ -17,4 +17,8 @@ public class Wallet {
     public void debit(int money) {
         this.balance -= money;
     }
+
+    public String showBalance() {
+        return "The balance is: " + this.balance;
+    }
 }
