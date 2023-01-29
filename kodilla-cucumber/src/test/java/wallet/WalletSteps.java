@@ -55,7 +55,7 @@ public class WalletSteps {
 
     @Given("there is $100 in my wallet")
     public void there_is_$100_in_my_wallet() {
-        wallet.deposit(100);
+        wallet.setBalance(100);
         assertEquals(100, wallet.getBalance());
     }
 
