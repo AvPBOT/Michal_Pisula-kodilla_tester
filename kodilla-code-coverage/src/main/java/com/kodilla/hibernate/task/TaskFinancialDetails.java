@@ -19,8 +19,6 @@ public class TaskFinancialDetails {
         this.paid = paid;
     }
 
-
-
     @Id
     @GeneratedValue
     @NotNull
@@ -29,24 +27,24 @@ public class TaskFinancialDetails {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @NotNull
     @Column(name = "PRICE")
     public BigDecimal getPrice() {
         return price;
     }
 
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
     @NotNull
     @Column(name = "PAID")
     public boolean getPaid() {
         return paid;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
     }
 
     public void setPaid(boolean paid) {

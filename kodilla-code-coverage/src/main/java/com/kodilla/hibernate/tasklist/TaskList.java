@@ -67,4 +67,18 @@ public class TaskList {
     private void setDescription(String description) {
         this.description = description;
     }
+
+    @OneToMany(
+            targetEntity = Task.class,
+            mappedBy = "taskList",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
 }
