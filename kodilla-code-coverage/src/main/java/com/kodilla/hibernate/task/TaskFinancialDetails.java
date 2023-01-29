@@ -19,10 +19,12 @@ public class TaskFinancialDetails {
         this.paid = paid;
     }
 
+
+
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "TASKS_FINANCIALS_ID", unique = true)
+    @Column(name = "ID", unique = true)
     public int getId() {
         return id;
     }

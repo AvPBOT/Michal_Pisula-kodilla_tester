@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "EMPLOYEES")
+@Table(name = "EMPLOYEE")
 public class Employee {
     private int id;
     private String firstname;
@@ -22,8 +22,8 @@ public class Employee {
     }
 
     @Id
-    @GeneratedValue
     @NotNull
+    @GeneratedValue()
     @Column(name = "EMPLOYEE_ID", unique = true)
     public int getId() {
         return id;
@@ -41,26 +41,29 @@ public class Employee {
         return lastname;
     }
 
-    private void setId(int id) {
-        this.id = id;
-    }
-
-    private void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    private void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "JOIN_EMPLOYEES_COMPANIES",
-            joinColumns = {@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")},
-            inverseJoinColumns = {@JoinColumn(name = "COMPANY_ID", referencedColumnName = "COMPANY_ID")}
+            joinColumns = {@JoinColumn(name = "EMPLOYEE_ID",referencedColumnName = "EMPLOYEE_ID")},
+            inverseJoinColumns ={@JoinColumn(name = "COMPANY_ID", referencedColumnName = "COMPANY_ID")}
     )
-
     public List<Company> getCompanies() {
         return companies;
+    }
+
+    public void setCompanies(List<Company> companies) {
+        this.companies = companies;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 }
