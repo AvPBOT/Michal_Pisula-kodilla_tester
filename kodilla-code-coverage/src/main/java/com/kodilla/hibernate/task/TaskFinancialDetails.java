@@ -14,8 +14,7 @@ public class TaskFinancialDetails {
     public TaskFinancialDetails() {
     }
 
-    public TaskFinancialDetails(int id, BigDecimal price, boolean paid) {
-        this.id = id;
+    public TaskFinancialDetails(BigDecimal price, boolean paid) {
         this.price = price;
         this.paid = paid;
     }
