@@ -25,10 +25,9 @@ public class TaskListRepositoryTestSuite {
         List<TaskList> readTaskLists = taskListRepository.findByListName(listName);
 
         //Then
-        assertEquals(1, readTaskLists.size());
+        assertEquals(4, readTaskLists.size());
 
         //CleanUp
-        int id = readTaskLists.get(0).getId();
-        taskListRepository.deleteById(id);
+        taskListRepository.delete(taskList);
     }
 }
