@@ -1,5 +1,7 @@
 package com.kodilla.hibernate.task;
 
+import com.kodilla.hibernate.tasklist.TaskList;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -11,8 +13,10 @@ public class Task {
     private String description;
     private LocalDate created;
     private int duration;
+    private TaskFinancialDetails taskFinancialDetails;
+    private TaskList taskList;
 
-    public Task() {
+    public Task(){
     }
 
     public Task(String description, int duration) {
@@ -20,7 +24,6 @@ public class Task {
         this.created = LocalDate.now();
         this.duration = duration;
     }
-
     @Id
     @GeneratedValue
     @NotNull
@@ -45,19 +48,39 @@ public class Task {
         return duration;
     }
 
-    private void setId(int id) {
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "TASKS_FINANCIALS_ID")
+    public TaskFinancialDetails getTaskFinancialDetails() {
+        return taskFinancialDetails;
+    }
+
+    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
+        this.taskFinancialDetails = taskFinancialDetails;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "TASKLIST_ID")
+    public TaskList getTaskList() {
+        return taskList;
+    }
+
+    public void setTaskList(TaskList taskList) {
+        this.taskList = taskList;
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
 
-    private void setDescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    private void setCreated(LocalDate created) {
+    public void setCreated(LocalDate created) {
         this.created = created;
     }
 
-    private void setDuration(int duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 }
