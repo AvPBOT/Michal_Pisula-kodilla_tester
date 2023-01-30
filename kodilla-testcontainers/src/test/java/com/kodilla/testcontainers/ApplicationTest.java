@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testcontainers.containers.BrowserWebDriverContainer;
 import org.testcontainers.containers.DefaultRecordingFileFactory;
@@ -19,10 +18,8 @@ import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 import static org.testcontainers.containers.BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL;
-import static org.testcontainers.containers.BrowserWebDriverContainer.VncRecordingMode.SKIP;
 
 public class ApplicationTest {
-
     @Rule
     public Network network = Network.newNetwork();
 
@@ -30,7 +27,7 @@ public class ApplicationTest {
     public GenericContainer webServer =
             new GenericContainer(
                     new ImageFromDockerfile()
-                            .withFileFromClasspath("/tmp/index.html", "index.html")
+                            .withFileFromClasspath("/tmp/index.html", "wizytowka.html")
                             .withDockerfileFromBuilder(builder ->
                                     builder
                                             .from("httpd:2.4")
@@ -44,14 +41,8 @@ public class ApplicationTest {
     public BrowserWebDriverContainer chrome =
             new BrowserWebDriverContainer<>()
                     .withNetwork(network)
-                    .withRecordingMode(SKIP, null)
-                    .withCapabilities(new ChromeOptions());
-
-    @Rule
-    public BrowserWebDriverContainer firefox =
-            new BrowserWebDriverContainer()
-                    .withCapabilities(new FirefoxOptions())
                     .withRecordingMode(RECORD_ALL, new File("./build/"))
+                    .withCapabilities(new ChromeOptions())
                     .withRecordingFileFactory(new DefaultRecordingFileFactory());
 
     @Test
@@ -62,7 +53,7 @@ public class ApplicationTest {
         File screenshot = driver.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(screenshot, new File("./build/screenshots/" + screenshot.getName()));
 
-        String title = driver.findElement(By.id("title")).getText();
-        assertEquals("My dockerized web page.", title);
+        String name = driver.findElement(By.id("name_id")).getText();
+        assertEquals("Name: Michal", name);
     }
 }
