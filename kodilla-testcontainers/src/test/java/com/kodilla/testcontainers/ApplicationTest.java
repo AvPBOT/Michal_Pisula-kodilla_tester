@@ -53,7 +53,7 @@ public class ApplicationTest {
         File screenshot = driver.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(screenshot, new File("./build/screenshots/" + screenshot.getName()));
 
-        String name = driver.findElement(By.id("name_id")).getText();
-        assertEquals("Name: Michal", name);
+        String role = driver.findElement(By.id("role_id")).getText();
+        assertEquals("Kodilla Tester", role);
     }
 }
