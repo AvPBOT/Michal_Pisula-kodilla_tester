@@ -15,7 +15,7 @@ class GamblingMachineTestSuite {
     GamblingMachine gamblingMachine = new GamblingMachine();
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/validNumbers.csv")
+    @CsvFileSource(resources = "/validNumbers.csv", delimiterString = ";")
     public void testHowManyWins(String numbers) throws InvalidNumbersException {
         String[] stringNumbers = numbers.split(",");
         Set<String> numbersSet = new HashSet<>(Arrays.asList(stringNumbers));
