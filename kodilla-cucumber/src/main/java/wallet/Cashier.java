@@ -1,13 +1,17 @@
 package wallet;
 
 public class Cashier {
-    private final CashSlot cashSlot;
+    private CashSlot cashSlot;
 
     public Cashier(CashSlot cashSlot) {
         this.cashSlot = cashSlot;
     }
 
-    public void withdraw(Wallet wallet, int amount) {
-        cashSlot.dispense(amount);
+    public String withdraw(Wallet wallet, int amount) {
+        if(amount >= 0 && amount <= wallet.getBalance()) {
+            wallet.debit(amount);
+            cashSlot.dispense(amount);
+        }
+        return "I don't have enough money in my wallet";
     }
 }
