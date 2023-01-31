@@ -27,7 +27,7 @@ public class ApplicationTest {
     public GenericContainer webServer =
             new GenericContainer(
                     new ImageFromDockerfile()
-                            .withFileFromClasspath("/tmp/index.html", "wizytowka.html")
+                            .withFileFromClasspath("/tmp/index.html", "card.html")
                             .withDockerfileFromBuilder(builder ->
                                     builder
                                             .from("httpd:2.4")
