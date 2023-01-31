@@ -7,17 +7,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 class GradesTest {
-    private final Grades testeeMarcoGrades = new Grades(Arrays.asList(5.0, 4.0, 4.5, 3.0, 2.0));
+    private final Grades testeeGrades = new Grades(Arrays.asList(5.0, 4.0, 4.5, 3.0, 2.0));
 
     private final Grades testeeEmptyGradesList = new Grades(new ArrayList<>());
 
     @Test
     void testGetAverage() {
         //When
-        double marcoAverageGrade = testeeMarcoGrades.getAverage();
+        double testeeAverageGrade = testeeGrades.getAverage();
 
         //Then
-        Assertions.assertEquals(3.7, marcoAverageGrade);
+        Assertions.assertEquals(3.7, testeeAverageGrade);
     }
 
     @Test
