@@ -14,18 +14,18 @@ class GradesTest {
     @Test
     void testGetAverage() {
         //When
-        double testeeAverageGrade = testeeGrades.getAverage();
+        double testeeGradesAverage = testeeGrades.getAverage();
 
         //Then
-        Assertions.assertEquals(3.7, testeeAverageGrade);
+        Assertions.assertEquals(3.7, testeeGradesAverage);
     }
 
     @Test
     void testAverageOfEmptyGradesList() {
         //When
-        double emptyGradesList = testeeEmptyGradesList.getAverage();
+        double emptyGradesListAverage = testeeEmptyGradesList.getAverage();
 
         //Then
-        Assertions.assertEquals(Double.NaN, emptyGradesList);
+        Assertions.assertEquals(Double.NaN, emptyGradesListAverage);
     }
 }
