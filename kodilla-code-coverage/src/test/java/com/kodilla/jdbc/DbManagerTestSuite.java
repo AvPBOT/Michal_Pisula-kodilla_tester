@@ -94,9 +94,6 @@ class DbManagerTestSuite {
 
     @Test
     void testSelectUsersAndPosts() throws SQLException {
-        //given
-
-        //when
         String sqlQuery = "SELECT U1.FIRSTNAME, U1.LASTNAME, U2.COUNT AS POSTS_NUMBER FROM USERS U1 JOIN (SELECT P.User_ID, COUNT(*) AS COUNT FROM USERS U JOIN POSTS P ON U.ID = P.USER_ID GROUP BY P.USER_ID having count(*) > 1) U2 ON U1.ID = U2.USER_ID";
         Statement statement = createStatement();
         ResultSet rs = statement.executeQuery(sqlQuery);
